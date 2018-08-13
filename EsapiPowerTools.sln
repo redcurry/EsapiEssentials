@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.Async", "src\EsapiPowerTools.Async\EsapiPowerTools.Async.csproj", "{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.DoseMetrics", "src\EsapiPowerTools.DoseMetrics\EsapiPowerTools.DoseMetrics.csproj", "{770F685B-807D-403F-AE48-6DD697C25510}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|Any CPU.Build.0 = Debug|x64
 		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Release|Any CPU.ActiveCfg = Release|x64
+		{770F685B-807D-403F-AE48-6DD697C25510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770F685B-807D-403F-AE48-6DD697C25510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770F685B-807D-403F-AE48-6DD697C25510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770F685B-807D-403F-AE48-6DD697C25510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
