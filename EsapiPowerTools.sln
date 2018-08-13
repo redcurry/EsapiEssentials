@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.Async", "src\EsapiPowerTools.Async\EsapiPowerTools.Async.csproj", "{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|Any CPU.Build.0 = Debug|x64
+		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Release|Any CPU.ActiveCfg = Release|x64
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
