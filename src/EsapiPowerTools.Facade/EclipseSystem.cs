@@ -1,9 +1,9 @@
 ﻿using System;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiPowerTools.Async
+namespace EsapiPowerTools.Facade
 {
-    public class EclipseService
+    public class EclipseSystem
     {
         public AppSession LogIn()
         {

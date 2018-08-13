@@ -4,36 +4,32 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</ProjectGuid>
+    <ProjectGuid>{1C345FF9-6372-4D22-B80B-45F81DDF554E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiPowerTools.Async</RootNamespace>
-    <AssemblyName>EsapiPowerTools.Async</AssemblyName>
+    <RootNamespace>EsapiPowerTools.SampleServiceImpl</RootNamespace>
+    <AssemblyName>EsapiPowerTools.SampleServiceImpl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ParallelExtensionsExtras, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MSFT.ParallelExtensionsExtras.1.2.0\lib\ParallelExtensionsExtras.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,18 +46,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EclipseServiceAsyncBase.cs" />
-    <Compile Include="EsapiAsyncRunner.cs" />
-    <Compile Include="PatientSessionAsyncBase.cs" />
+    <Compile Include="EclipsePatientSession.cs" />
+    <Compile Include="EclipseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Facade\EsapiPowerTools.Facade.csproj">
-      <Project>{667eb5c5-559c-45d5-b3ce-c146aaf84a2a}</Project>
-      <Name>EsapiPowerTools.Facade</Name>
+    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiPowerTools.Async.csproj">
+      <Project>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</Project>
+      <Name>EsapiPowerTools.Async</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EsapiPowerTools.DoseMetrics\EsapiPowerTools.DoseMetrics.csproj">
+      <Project>{770F685B-807D-403F-AE48-6DD697C25510}</Project>
+      <Name>EsapiPowerTools.DoseMetrics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EsapiPowerTools.SampleServiceInterface\EsapiPowerTools.SampleServiceInterface.csproj">
+      <Project>{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}</Project>
+      <Name>EsapiPowerTools.SampleServiceInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

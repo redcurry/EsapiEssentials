@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EsapiPowerTools.Async
+namespace EsapiPowerTools.Facade
 {
     public class CannotLogInException : Exception
     {
