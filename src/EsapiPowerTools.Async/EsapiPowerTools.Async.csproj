@@ -50,19 +50,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EclipseServiceAsyncBase.cs" />
     <Compile Include="EsapiAsyncRunner.cs" />
-    <Compile Include="PatientSessionAsyncBase.cs" />
+    <Compile Include="EsapiServiceBase.cs" />
+    <Compile Include="NotLoggedInException.cs" />
+    <Compile Include="PatientNotOpenedException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Facade\EsapiPowerTools.Facade.csproj">
-      <Project>{667eb5c5-559c-45d5-b3ce-c146aaf84a2a}</Project>
-      <Name>EsapiPowerTools.Facade</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

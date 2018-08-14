@@ -14,15 +14,15 @@ namespace EsapiPowerTools.Async
             _taskScheduler = new StaTaskScheduler(1);
         }
 
-        public Task RunAsync(Action a) =>
-            Task.Factory.StartNew(a, CancellationToken.None, TaskCreationOptions.None, _taskScheduler);
+        public Task RunAsync(Action a) => Task.Factory.StartNew(
+            a, CancellationToken.None, TaskCreationOptions.None, _taskScheduler);
 
-        public Task<TResult> RunAsync<TResult>(Func<TResult> f) =>
-            Task.Factory.StartNew(f, CancellationToken.None, TaskCreationOptions.None, _taskScheduler);
+        public Task<T> RunAsync<T>(Func<T> f) => Task.Factory.StartNew(
+            f, CancellationToken.None, TaskCreationOptions.None, _taskScheduler);
 
         public void Dispose()
         {
-            _taskScheduler?.Dispose();
+            _taskScheduler.Dispose();
         }
     }
 }

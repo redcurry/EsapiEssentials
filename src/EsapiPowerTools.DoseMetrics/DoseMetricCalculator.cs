@@ -6,17 +6,10 @@ namespace EsapiPowerTools.DoseMetrics
 {
     public class DoseMetricCalculator
     {
-        private readonly Patient _patient;
-
-        public DoseMetricCalculator(Patient patient)
-        {
-            _patient = patient;
-        }
-
-        public double CalculateAsync(string courseId, string planningItemId, string structureId, string metric)
+        public double Calculate(string metric, Patient patient, string courseId, string planningItemId, string structureId)
         {
             // Return the mean dose for now; TODO: Check for nulls
-            var course = _patient.Courses?.FirstOrDefault(x => x.Id == courseId);
+            var course = patient.Courses?.FirstOrDefault(x => x.Id == courseId);
             var planningItem = course.PlanSetups?.FirstOrDefault(x => x.Id == planningItemId) as PlanningItem ??
                                course.PlanSums?.FirstOrDefault(x => x.Id == planningItemId);
             Structure structure = null;

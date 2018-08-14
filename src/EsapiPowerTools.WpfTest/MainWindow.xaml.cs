@@ -1,28 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using EsapiPowerTools.SampleServiceImpl;
 
 namespace EsapiPowerTools.WpfTest
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private EsapiService _esapiService;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _esapiService = new EsapiService();
+            await _esapiService.LogInAsync("SysAdmin", "SysAdmin");
+            await _esapiService.OpenPatientAsync("$DVHAnalysisQA");
+            var courseIds = await _esapiService.GetCourseIdsAsync();
+            ListBox.ItemsSource = courseIds;
+            var metric = await _esapiService.CalculateMetricAsync(null, "HEADNECK", "HN IMRT ECL", "CORD");
+            TextBlock.Text = metric.ToString("F2");
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            _esapiService.Dispose();
         }
     }
 }
