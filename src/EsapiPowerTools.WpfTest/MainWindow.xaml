@@ -7,6 +7,11 @@
     Closed="MainWindow_OnClosed"
     >
     <StackPanel>
+        <TextBlock x:Name="StatusTextBlock" />
+        <ProgressBar
+            x:Name="ProgressBar"
+            Height="16"
+            />
         <ListBox x:Name="ListBox" />
         <TextBlock x:Name="TextBlock" />
     </StackPanel>
