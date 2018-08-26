@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace EsapiPowerTools.SampleServiceInterface
+namespace EsapiEssentials.SampleServiceInterface
 {
     public interface IEsapiService
     {

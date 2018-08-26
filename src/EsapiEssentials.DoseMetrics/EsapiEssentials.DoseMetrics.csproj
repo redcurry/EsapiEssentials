@@ -7,8 +7,8 @@
     <ProjectGuid>{770F685B-807D-403F-AE48-6DD697C25510}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiPowerTools.DoseMetrics</RootNamespace>
-    <AssemblyName>EsapiPowerTools.DoseMetrics</AssemblyName>
+    <RootNamespace>EsapiEssentials.DoseMetrics</RootNamespace>
+    <AssemblyName>EsapiEssentials.DoseMetrics</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

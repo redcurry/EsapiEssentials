@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EsapiPowerTools.WpfTest")]
+[assembly: AssemblyTitle("EsapiEssentials.WpfTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michigan Medicine Radiation Oncology")]
-[assembly: AssemblyProduct("EsapiPowerTools.WpfTest")]
+[assembly: AssemblyProduct("EsapiEssentials.WpfTest")]
 [assembly: AssemblyCopyright("Copyright © Michigan Medicine Radiation Oncology 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

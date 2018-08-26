@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiPowerTools.Async
+namespace EsapiEssentials.Async
 {
     public abstract class EsapiServiceBase : IDisposable
     {

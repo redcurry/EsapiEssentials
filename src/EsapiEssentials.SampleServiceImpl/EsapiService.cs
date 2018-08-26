@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using EsapiPowerTools.Async;
-using EsapiPowerTools.DoseMetrics;
-using EsapiPowerTools.SampleServiceInterface;
+using EsapiEssentials.Async;
+using EsapiEssentials.DoseMetrics;
+using EsapiEssentials.SampleServiceInterface;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiPowerTools.SampleServiceImpl
+namespace EsapiEssentials.SampleServiceImpl
 {
     public class EsapiService : EsapiServiceBase, IEsapiService
     {

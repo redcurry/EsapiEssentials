@@ -7,8 +7,8 @@
     <ProjectGuid>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiPowerTools.Async</RootNamespace>
-    <AssemblyName>EsapiPowerTools.Async</AssemblyName>
+    <RootNamespace>EsapiEssentials.Async</RootNamespace>
+    <AssemblyName>EsapiEssentials.Async</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

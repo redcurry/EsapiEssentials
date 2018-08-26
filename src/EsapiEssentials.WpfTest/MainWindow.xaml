@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="EsapiPowerTools.WpfTest.MainWindow"
+    x:Class="EsapiEssentials.WpfTest.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="MainWindow" Height="450" Width="800"

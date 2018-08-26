@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EsapiPowerTools.Async
+namespace EsapiEssentials.Async
 {
     public class PatientNotOpenedException : Exception
     {

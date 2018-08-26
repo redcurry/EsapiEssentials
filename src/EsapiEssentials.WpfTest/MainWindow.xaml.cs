@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using EsapiPowerTools.SampleServiceImpl;
+using EsapiEssentials.SampleServiceImpl;
 
-namespace EsapiPowerTools.WpfTest
+namespace EsapiEssentials.WpfTest
 {
     public partial class MainWindow : Window
     {
