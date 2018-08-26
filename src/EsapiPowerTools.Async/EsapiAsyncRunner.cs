@@ -5,7 +5,7 @@ using System.Threading.Tasks.Schedulers;
 
 namespace EsapiPowerTools.Async
 {
-    public class EsapiAsyncRunner : IDisposable
+    internal class EsapiAsyncRunner : IDisposable
     {
         private readonly StaTaskScheduler _taskScheduler;
 
