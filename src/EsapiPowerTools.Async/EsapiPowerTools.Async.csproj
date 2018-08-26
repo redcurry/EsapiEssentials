@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="EsapiAsyncRunner.cs" />
     <Compile Include="EsapiServiceBase.cs" />
-    <Compile Include="NotLoggedInException.cs" />
+    <Compile Include="LogInRequiredException.cs" />
     <Compile Include="PatientNotOpenedException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

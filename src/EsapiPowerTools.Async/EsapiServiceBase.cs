@@ -77,7 +77,7 @@ namespace EsapiPowerTools.Async
         private void ValidateApplication()
         {
             if (_app == null)
-                throw new NotLoggedInException();
+                throw new LogInRequiredException();
         }
 
         private void ValidatePatient()
