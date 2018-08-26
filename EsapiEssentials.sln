@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.Async", "src\EsapiPowerTools.Async\EsapiPowerTools.Async.csproj", "{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Async", "src\EsapiPowerTools.Async\EsapiEssentials.Async.csproj", "{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.DoseMetrics", "src\EsapiPowerTools.DoseMetrics\EsapiPowerTools.DoseMetrics.csproj", "{770F685B-807D-403F-AE48-6DD697C25510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.DoseMetrics", "src\EsapiPowerTools.DoseMetrics\EsapiEssentials.DoseMetrics.csproj", "{770F685B-807D-403F-AE48-6DD697C25510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.WpfTest", "src\EsapiPowerTools.WpfTest\EsapiPowerTools.WpfTest.csproj", "{C8B98E51-23C9-4D8B-8125-78B75A41DD95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest", "src\EsapiPowerTools.WpfTest\EsapiEssentials.WpfTest.csproj", "{C8B98E51-23C9-4D8B-8125-78B75A41DD95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.SampleServiceInterface", "src\EsapiPowerTools.SampleServiceInterface\EsapiPowerTools.SampleServiceInterface.csproj", "{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.SampleServiceInterface", "src\EsapiPowerTools.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj", "{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiPowerTools.SampleServiceImpl", "src\EsapiPowerTools.SampleServiceImpl\EsapiPowerTools.SampleServiceImpl.csproj", "{1C345FF9-6372-4D22-B80B-45F81DDF554E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.SampleServiceImpl", "src\EsapiPowerTools.SampleServiceImpl\EsapiEssentials.SampleServiceImpl.csproj", "{1C345FF9-6372-4D22-B80B-45F81DDF554E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

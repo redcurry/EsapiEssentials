@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C345FF9-6372-4D22-B80B-45F81DDF554E}</ProjectGuid>
+    <ProjectGuid>{770F685B-807D-403F-AE48-6DD697C25510}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiPowerTools.SampleServiceImpl</RootNamespace>
-    <AssemblyName>EsapiPowerTools.SampleServiceImpl</AssemblyName>
+    <RootNamespace>EsapiPowerTools.DoseMetrics</RootNamespace>
+    <AssemblyName>EsapiPowerTools.DoseMetrics</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,21 +47,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EsapiService.cs" />
+    <Compile Include="DoseMetricCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiPowerTools.Async.csproj">
-      <Project>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</Project>
-      <Name>EsapiPowerTools.Async</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.DoseMetrics\EsapiPowerTools.DoseMetrics.csproj">
-      <Project>{770F685B-807D-403F-AE48-6DD697C25510}</Project>
-      <Name>EsapiPowerTools.DoseMetrics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.SampleServiceInterface\EsapiPowerTools.SampleServiceInterface.csproj">
-      <Project>{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}</Project>
-      <Name>EsapiPowerTools.SampleServiceInterface</Name>
+    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiEssentials.Async.csproj">
+      <Project>{acf6a9d8-acc1-45c5-93b4-537ab752eaff}</Project>
+      <Name>EsapiEssentials.Async</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
