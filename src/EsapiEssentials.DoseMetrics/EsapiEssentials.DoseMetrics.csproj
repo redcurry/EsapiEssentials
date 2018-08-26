@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiEssentials.Async.csproj">
+    <ProjectReference Include="..\EsapiEssentials.Async\EsapiEssentials.Async.csproj">
       <Project>{acf6a9d8-acc1-45c5-93b4-537ab752eaff}</Project>
       <Name>EsapiEssentials.Async</Name>
     </ProjectReference>

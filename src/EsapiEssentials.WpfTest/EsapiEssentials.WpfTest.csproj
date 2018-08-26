@@ -94,15 +94,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiEssentials.Async.csproj">
+    <ProjectReference Include="..\EsapiEssentials.Async\EsapiEssentials.Async.csproj">
       <Project>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</Project>
       <Name>EsapiEssentials.Async</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.SampleServiceImpl\EsapiEssentials.SampleServiceImpl.csproj">
+    <ProjectReference Include="..\EsapiEssentials.SampleServiceImpl\EsapiEssentials.SampleServiceImpl.csproj">
       <Project>{1C345FF9-6372-4D22-B80B-45F81DDF554E}</Project>
       <Name>EsapiEssentials.SampleServiceImpl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj">
+    <ProjectReference Include="..\EsapiEssentials.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj">
       <Project>{f59fa423-b2ee-4fce-92b7-906f5cda3153}</Project>
       <Name>EsapiEssentials.SampleServiceInterface</Name>
     </ProjectReference>

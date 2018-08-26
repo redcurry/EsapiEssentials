@@ -51,16 +51,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EsapiPowerTools.Async\EsapiEssentials.Async.csproj">
+    <ProjectReference Include="..\EsapiEssentials.Async\EsapiEssentials.Async.csproj">
       <Project>{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}</Project>
       <Name>EsapiEssentials.Async</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.DoseMetrics\EsapiEssentials.DoseMetrics.csproj">
+    <ProjectReference Include="..\EsapiEssentials.DoseMetrics\EsapiEssentials.DoseMetrics.csproj">
       <Project>{770F685B-807D-403F-AE48-6DD697C25510}</Project>
       <Name>EsapiEssentials.DoseMetrics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiPowerTools.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj">
-      <Project>{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}</Project>
+    <ProjectReference Include="..\EsapiEssentials.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj">
+      <Project>{f59fa423-b2ee-4fce-92b7-906f5cda3153}</Project>
       <Name>EsapiEssentials.SampleServiceInterface</Name>
     </ProjectReference>
   </ItemGroup>
