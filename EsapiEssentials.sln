@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.SampleServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest", "src\EsapiEssentials.WpfTest\EsapiEssentials.WpfTest.csproj", "{C8B98E51-23C9-4D8B-8125-78B75A41DD95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Extensions", "src\EsapiEssentials.Extensions\EsapiEssentials.Extensions.csproj", "{73E28918-A53C-44B0-8A5D-E889621E2E36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -39,6 +41,10 @@ Global
 		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Debug|x64.Build.0 = Debug|x64
 		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Release|x64.ActiveCfg = Release|x64
 		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Release|x64.Build.0 = Release|x64
+		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Debug|x64.ActiveCfg = Debug|x64
+		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Debug|x64.Build.0 = Debug|x64
+		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Release|x64.ActiveCfg = Release|Any CPU
+		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
