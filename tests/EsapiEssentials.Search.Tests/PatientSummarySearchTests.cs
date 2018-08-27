@@ -29,7 +29,7 @@ namespace EsapiEssentials.Search.Tests
 
         [TestCase("", new string[0])]
         [TestCase(" ", new string[0])]
-        [TestCase("car", new[] {"001", "003", "008"})]
+        [TestCase("car", new[] {"003", "008"})]
         [TestCase("mike", new[] {"006"})]
         [TestCase("robert", new string[0])]
         [TestCase("ngu lam", new[] {"004"})]
