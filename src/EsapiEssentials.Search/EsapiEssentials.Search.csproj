@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PatientSummarySearch.cs" />
+    <Compile Include="Internal\PatientSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchPatient.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

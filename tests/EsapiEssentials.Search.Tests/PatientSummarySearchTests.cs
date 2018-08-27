@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using EsapiEssentials.Search.Internal;
 using NUnit.Framework;
 
 namespace EsapiEssentials.Search.Tests
@@ -34,8 +34,8 @@ namespace EsapiEssentials.Search.Tests
         [TestCase("", new string[0])]
         public void SearchTest(string searchText, string[] resultIds)
         {
-            var search = new PatientSummarySearchInternal();
-            var results = search.FindMatches(searchText, _patients, 10).ToArray();
+            var search = new PatientSearch(_patients, 10);
+            var results = search.FindMatches(searchText).ToArray();
 
             Assert.That(results.Select(x => x.Id).ToArray(), Is.EqualTo(resultIds));
         }
