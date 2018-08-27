@@ -16,20 +16,20 @@ namespace EsapiEssentials.Async
             _runner = new EsapiAsyncRunner();
         }
 
-        public Task LogInAsync() =>
+        public virtual Task LogInAsync() =>
             RunAsync(() => _app = Application.CreateApplication(null, null));
 
-        public Task LogInAsync(string userId, string password) =>
+        public virtual Task LogInAsync(string userId, string password) =>
             RunAsync(() => _app = Application.CreateApplication(userId, password));
 
-        public Task OpenPatientAsync(string patientId) =>
+        public virtual Task OpenPatientAsync(string patientId) =>
             RunAsync(() =>
             {
                 ValidateApplication();
                 _patient = _app.OpenPatientById(patientId);
             });
 
-        public Task ClosePatientAsync() =>
+        public virtual Task ClosePatientAsync() =>
             RunAsync(() =>
             {
                 ValidateApplication();
@@ -37,7 +37,7 @@ namespace EsapiEssentials.Async
                 _patient = null;
             });
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _runner.RunAsync(() => _app?.Dispose());
             _runner.Dispose();
@@ -71,8 +71,8 @@ namespace EsapiEssentials.Async
                 return f(_patient);
             });
 
-        private Task RunAsync(Action a) => _runner.RunAsync(a);
-        private Task<T> RunAsync<T>(Func<T> f) => _runner.RunAsync(f);
+        protected Task RunAsync(Action a) => _runner.RunAsync(a);
+        protected Task<T> RunAsync<T>(Func<T> f) => _runner.RunAsync(f);
 
         private void ValidateApplication()
         {
