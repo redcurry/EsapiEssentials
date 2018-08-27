@@ -14,5 +14,7 @@
             />
         <ListBox x:Name="ListBox" />
         <TextBlock x:Name="TextBlock" />
+        <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_OnTextChanged" />
+        <ListBox x:Name="SearchResultsListBox" />
     </StackPanel>
 </Window>

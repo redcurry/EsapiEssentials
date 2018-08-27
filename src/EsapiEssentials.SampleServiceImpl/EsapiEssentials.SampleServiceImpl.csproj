@@ -63,6 +63,10 @@
       <Project>{f59fa423-b2ee-4fce-92b7-906f5cda3153}</Project>
       <Name>EsapiEssentials.SampleServiceInterface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EsapiEssentials.Search\EsapiEssentials.Search.csproj">
+      <Project>{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}</Project>
+      <Name>EsapiEssentials.Search</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

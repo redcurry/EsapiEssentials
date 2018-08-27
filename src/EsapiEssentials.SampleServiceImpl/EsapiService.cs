@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 using EsapiEssentials.Async;
 using EsapiEssentials.DoseMetrics;
 using EsapiEssentials.SampleServiceInterface;
+using EsapiEssentials.Search;
 using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.SampleServiceImpl
@@ -11,10 +13,20 @@ namespace EsapiEssentials.SampleServiceImpl
     {
         private readonly DoseMetricCalculator _metricCalc;
 
+        private PatientSummarySearch _search;
+
         public EsapiService()
         {
             _metricCalc = new DoseMetricCalculator();
         }
+
+        public Task<string[]> SearchAsync(string searchText) =>
+            RunAsync(app =>
+            {
+                if (_search == null)
+                    _search = new PatientSummarySearch(app.PatientSummaries, 10);
+                return _search.FindMatches(searchText).Select(ps => $"{ps.LastName}, {ps.FirstName}").ToArray();
+            });
 
         public Task<string[]> GetCourseIdsAsync() =>
             RunAsync(patient => patient.Courses.Select(x => x.Id).ToArray());

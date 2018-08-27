@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using EsapiEssentials.SampleServiceImpl;
 
 namespace EsapiEssentials.WpfTest
@@ -37,6 +38,12 @@ namespace EsapiEssentials.WpfTest
 
             StatusTextBlock.Text = "Done.";
             ProgressBar.IsIndeterminate = false;
+        }
+
+        private async void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var results = await _esapiService.SearchAsync(SearchTextBox.Text);
+            SearchResultsListBox.ItemsSource = results;
         }
 
         private void MainWindow_OnClosed(object sender, EventArgs e)
