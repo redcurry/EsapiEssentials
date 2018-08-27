@@ -42,8 +42,11 @@ namespace EsapiEssentials.WpfTest
 
         private async void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            var then = DateTime.Now;
             var results = await _esapiService.SearchAsync(SearchTextBox.Text);
             SearchResultsListBox.ItemsSource = results;
+            var now = DateTime.Now;
+            SearchTime.Text = $"{(now - then).Milliseconds} ms";
         }
 
         private void MainWindow_OnClosed(object sender, EventArgs e)
