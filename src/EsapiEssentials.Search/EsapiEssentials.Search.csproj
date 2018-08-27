@@ -50,7 +50,7 @@
     <Compile Include="PatientSummarySearch.cs" />
     <Compile Include="Internal\PatientSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchPatient.cs" />
+    <Compile Include="Internal\SearchPatient.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

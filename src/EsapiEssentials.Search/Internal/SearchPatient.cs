@@ -1,4 +1,4 @@
-﻿namespace EsapiEssentials.Search
+﻿namespace EsapiEssentials.Search.Internal
 {
     internal class SearchPatient
     {
