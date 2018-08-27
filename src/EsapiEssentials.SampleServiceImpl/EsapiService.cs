@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using EsapiEssentials.Async;
 using EsapiEssentials.DoseMetrics;
@@ -20,19 +19,29 @@ namespace EsapiEssentials.SampleServiceImpl
             _metricCalc = new DoseMetricCalculator();
         }
 
+        public override async Task LogInAsync()
+        {
+            await base.LogInAsync();
+            await InitializeSearchAsync();
+        }
+
+        public override async Task LogInAsync(string userId, string password)
+        {
+            await base.LogInAsync(userId, password);
+            await InitializeSearchAsync();
+        }
+
         public Task<string[]> SearchAsync(string searchText) =>
-            RunAsync(app =>
-            {
-                if (_search == null)
-                    _search = new PatientSummarySearch(app.PatientSummaries, 10);
-                return _search.FindMatches(searchText).Select(ps => $"{ps.LastName}, {ps.FirstName}").ToArray();
-            });
+            RunAsync(() => _search.FindMatches(searchText).Select(ps => $"{ps.LastName}, {ps.FirstName}").ToArray());
 
         public Task<string[]> GetCourseIdsAsync() =>
             RunAsync(patient => patient.Courses.Select(x => x.Id).ToArray());
 
         public Task<double> CalculateMetricAsync(string metric, string courseId, string planId, string structureId) =>
             RunAsync(patient => CalculateMetric(metric, patient, courseId, planId, structureId));
+
+        private Task InitializeSearchAsync() =>
+            RunAsync(app => _search = new PatientSummarySearch(app.PatientSummaries, 10));
 
         private double CalculateMetric(string metric, Patient patient, string courseId, string planId, string structureId)
         {
