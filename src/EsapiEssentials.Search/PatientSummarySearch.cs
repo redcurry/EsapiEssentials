@@ -7,19 +7,23 @@ namespace EsapiEssentials.Search
 {
     public class PatientSummarySearch
     {
-        private readonly PatientSummary[] _patients;
+        private readonly IEnumerable<PatientSummary> _patients;
         private readonly PatientSearch _search;
 
         public PatientSummarySearch(IEnumerable<PatientSummary> patients, int maxResults)
         {
+            // Need to convert patients to an array,
+            // or the IEnumerable will be iterated multiple times
             _patients = patients.ToArray();
             _search = new PatientSearch(CreateSearchPatients(), maxResults);
         }
 
         public IEnumerable<PatientSummary> FindMatches(string searchText)
         {
+            // Need to convert matches to an array,
+            // or the IEnumerable will be iterated multiple times
             var matches = _search.FindMatches(searchText);
-            return GetPatientSummaries(matches);
+            return GetPatientSummaries(matches.ToArray());
         }
 
         private IEnumerable<SearchPatient> CreateSearchPatients() =>

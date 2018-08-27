@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EsapiEssentials.Search.Internal
@@ -14,14 +15,17 @@ namespace EsapiEssentials.Search.Internal
             _maxResults = maxResults;
         }
 
-        public IEnumerable<SearchPatient> FindMatches(string searchText) =>
-            !string.IsNullOrWhiteSpace(searchText)
-                ? _patients.Where(p => IsMatch(p, searchText)).Take(_maxResults)
-                : Enumerable.Empty<SearchPatient>();
-
-        private bool IsMatch(SearchPatient patient, string searchText)
+        public IEnumerable<SearchPatient> FindMatches(string searchText)
         {
+            if (string.IsNullOrWhiteSpace(searchText))
+                return Enumerable.Empty<SearchPatient>();
+
             var searchTerms = GetSearchTerms(searchText);
+            return _patients.Where(p => IsMatch(p, searchTerms)).Take(_maxResults);
+        }
+
+        private bool IsMatch(SearchPatient patient, string[] searchTerms)
+        {
             switch (searchTerms.Length)
             {
                 case 0:
@@ -49,6 +53,6 @@ namespace EsapiEssentials.Search.Internal
             IsSubstring(lastName, patient.LastName) && IsSubstring(firstName, patient.FirstName);
 
         private bool IsSubstring(string small, string large) =>
-            large.ToUpper().Contains(small.ToUpper());
+            large.StartsWith(small, StringComparison.OrdinalIgnoreCase);
     }
 }
