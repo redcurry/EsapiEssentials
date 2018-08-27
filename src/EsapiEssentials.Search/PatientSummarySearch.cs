@@ -20,7 +20,11 @@ namespace EsapiEssentials.Search
             // Need to convert patients to an array,
             // or the IEnumerable will be iterated multiple times
             _patients = patients.ToArray();
-            _search = new PatientSearch(CreateSearchPatients(), maxResults);
+
+            // Adapt each PatientSummary to a SearchPatient object
+            // to make PatientSearch testable without referencing ESAPI
+            var searchPatients = CreateSearchPatients();
+            _search = new PatientSearch(searchPatients, maxResults);
         }
 
         /// <summary>
