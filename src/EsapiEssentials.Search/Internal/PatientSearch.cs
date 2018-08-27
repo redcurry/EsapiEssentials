@@ -15,7 +15,7 @@ namespace EsapiEssentials.Search.Internal
         }
 
         public IEnumerable<SearchPatient> FindMatches(string searchText) =>
-            !string.IsNullOrEmpty(searchText)
+            !string.IsNullOrWhiteSpace(searchText)
                 ? _patients.Where(p => IsMatch(p, searchText)).Take(_maxResults)
                 : Enumerable.Empty<SearchPatient>();
 
