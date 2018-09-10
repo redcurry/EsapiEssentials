@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Search.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Settings", "src\EsapiEssentials.Settings\EsapiEssentials.Settings.csproj", "{5C67073F-74EB-4473-B046-9A0532CE5451}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.StandaloneAppLauncher", "src\EsapiEssentials.StandaloneAppLauncher\EsapiEssentials.StandaloneAppLauncher.csproj", "{53D36D53-A080-4907-9595-FF46D1D91134}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,14 @@ Global
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|x64.ActiveCfg = Release|Any CPU
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|x64.Build.0 = Release|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.Build.0 = Debug|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|x64.ActiveCfg = Release|Any CPU
+		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
