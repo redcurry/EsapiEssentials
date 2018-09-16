@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Windows;
+﻿using System.Windows;
 using EsapiEssentials.StandaloneAppLauncher;
 using VMS.TPS.Common.Model.API;
 
@@ -11,7 +10,7 @@ namespace VMS.TPS
         {
             try
             {
-                Launcher.Launch(Assembly.GetExecutingAssembly(), context);
+                Launcher.Launch(context);
             }
             catch (LaunchException e)
             {

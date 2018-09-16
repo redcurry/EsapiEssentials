@@ -9,11 +9,11 @@ namespace EsapiEssentials.StandaloneAppLauncher
 {
     public class Launcher
     {
-        public static void Launch(Assembly asm, ScriptContext context)
+        public static void Launch(ScriptContext context)
         {
             try
             {
-                Process.Start(FirstExeIn(AssemblyDir(asm)));
+                Process.Start(FirstExeIn(AssemblyDir(Assembly.GetExecutingAssembly())));
             }
             catch (Exception e)
             {
