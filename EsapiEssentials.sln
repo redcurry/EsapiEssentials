@@ -3,24 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Async", "src\EsapiEssentials.Async\EsapiEssentials.Async.csproj", "{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.DoseMetrics", "src\EsapiEssentials.DoseMetrics\EsapiEssentials.DoseMetrics.csproj", "{770F685B-807D-403F-AE48-6DD697C25510}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.SampleServiceImpl", "src\EsapiEssentials.SampleServiceImpl\EsapiEssentials.SampleServiceImpl.csproj", "{1C345FF9-6372-4D22-B80B-45F81DDF554E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.SampleServiceInterface", "src\EsapiEssentials.SampleServiceInterface\EsapiEssentials.SampleServiceInterface.csproj", "{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest", "src\EsapiEssentials.WpfTest\EsapiEssentials.WpfTest.csproj", "{C8B98E51-23C9-4D8B-8125-78B75A41DD95}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Extensions", "src\EsapiEssentials.Extensions\EsapiEssentials.Extensions.csproj", "{73E28918-A53C-44B0-8A5D-E889621E2E36}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Search", "src\EsapiEssentials.Search\EsapiEssentials.Search.csproj", "{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.StandaloneAppLauncher", "src\EsapiEssentials.StandaloneAppLauncher\EsapiEssentials.StandaloneAppLauncher.csproj", "{53D36D53-A080-4907-9595-FF46D1D91134}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest.Launcher", "src\EsapiEssentials.WpfTest.Launcher\EsapiEssentials.WpfTest.Launcher.csproj", "{307F9256-6BF3-4589-9615-92F1D2211317}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials", "src\EsapiEssentials\EsapiEssentials.csproj", "{FDC15E5D-0179-42CF-B352-48B74B234454}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}"
@@ -41,42 +23,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|x64.ActiveCfg = Debug|x64
-		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Debug|x64.Build.0 = Debug|x64
-		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Release|x64.ActiveCfg = Release|x64
-		{ACF6A9D8-ACC1-45C5-93B4-537AB752EAFF}.Release|x64.Build.0 = Release|x64
-		{770F685B-807D-403F-AE48-6DD697C25510}.Debug|x64.ActiveCfg = Debug|x64
-		{770F685B-807D-403F-AE48-6DD697C25510}.Debug|x64.Build.0 = Debug|x64
-		{770F685B-807D-403F-AE48-6DD697C25510}.Release|x64.ActiveCfg = Release|x64
-		{770F685B-807D-403F-AE48-6DD697C25510}.Release|x64.Build.0 = Release|x64
-		{1C345FF9-6372-4D22-B80B-45F81DDF554E}.Debug|x64.ActiveCfg = Debug|x64
-		{1C345FF9-6372-4D22-B80B-45F81DDF554E}.Debug|x64.Build.0 = Debug|x64
-		{1C345FF9-6372-4D22-B80B-45F81DDF554E}.Release|x64.ActiveCfg = Release|x64
-		{1C345FF9-6372-4D22-B80B-45F81DDF554E}.Release|x64.Build.0 = Release|x64
-		{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}.Debug|x64.ActiveCfg = Debug|x64
-		{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}.Debug|x64.Build.0 = Debug|x64
-		{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}.Release|x64.ActiveCfg = Release|x64
-		{F59FA423-B2EE-4FCE-92B7-906F5CDA3153}.Release|x64.Build.0 = Release|x64
-		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Debug|x64.ActiveCfg = Debug|x64
-		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Debug|x64.Build.0 = Debug|x64
-		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Release|x64.ActiveCfg = Release|x64
-		{C8B98E51-23C9-4D8B-8125-78B75A41DD95}.Release|x64.Build.0 = Release|x64
-		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Debug|x64.ActiveCfg = Debug|x64
-		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Debug|x64.Build.0 = Debug|x64
-		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Release|x64.ActiveCfg = Release|x64
-		{73E28918-A53C-44B0-8A5D-E889621E2E36}.Release|x64.Build.0 = Release|x64
-		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Debug|x64.ActiveCfg = Debug|x64
-		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Debug|x64.Build.0 = Debug|x64
-		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.ActiveCfg = Release|x64
-		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.Build.0 = Release|x64
-		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.ActiveCfg = Debug|x64
-		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.Build.0 = Debug|x64
-		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|x64.ActiveCfg = Release|x64
-		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|x64.Build.0 = Release|x64
-		{307F9256-6BF3-4589-9615-92F1D2211317}.Debug|x64.ActiveCfg = Debug|x64
-		{307F9256-6BF3-4589-9615-92F1D2211317}.Debug|x64.Build.0 = Debug|x64
-		{307F9256-6BF3-4589-9615-92F1D2211317}.Release|x64.ActiveCfg = Release|x64
-		{307F9256-6BF3-4589-9615-92F1D2211317}.Release|x64.Build.0 = Release|x64
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Debug|x64.ActiveCfg = Debug|x64
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Debug|x64.Build.0 = Debug|x64
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Release|x64.ActiveCfg = Release|x64
