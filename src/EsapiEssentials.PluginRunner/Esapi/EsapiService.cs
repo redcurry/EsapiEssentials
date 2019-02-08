@@ -28,7 +28,7 @@ namespace EsapiEssentials.PluginRunner
             RunAsync(patient => patient.GetPlanningItems().Select(CreatePlanOrPlanSum).ToArray());
 
         private Task InitializeSearchAsync() =>
-            RunAsync(app => _search = new PatientSummarySearch(app.PatientSummaries, 10));
+            RunAsync(app => _search = new PatientSummarySearch(app.PatientSummaries, 20));
 
         private PatientMatch CreatePatientMatch(PatientSummary ps) =>
             new PatientMatch
