@@ -10,8 +10,8 @@ namespace EsapiEssentials.PluginRunner
             get => _type;
             set
             {
-                Set(ref _type, value);
-                RaisePropertyChanged(nameof(CanBeActive));
+                if (Set(ref _type, value))
+                    RaisePropertyChanged(nameof(CanBeActive));
             }
         }
 
@@ -35,8 +35,12 @@ namespace EsapiEssentials.PluginRunner
             get => _isInScope;
             set
             {
-                Set(ref _isInScope, value);
-                RaisePropertyChanged(nameof(CanBeActive));
+                if (Set(ref _isInScope, value))
+                {
+                    if (!IsInScope)
+                        IsActive = false;
+                    RaisePropertyChanged(nameof(CanBeActive));
+                }
             }
         }
 
