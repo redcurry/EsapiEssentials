@@ -1,0 +1,21 @@
+﻿<Window
+    x:Class="EsapiEssentials.Samples.Standalone.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="450" Width="800"
+    Loaded="MainWindow_OnLoaded"
+    Closed="MainWindow_OnClosed"
+    >
+    <StackPanel>
+        <TextBlock x:Name="StatusTextBlock" />
+        <ProgressBar
+            x:Name="ProgressBar"
+            Height="16"
+            />
+        <ListBox x:Name="ListBox" />
+        <TextBlock x:Name="TextBlock" />
+        <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_OnTextChanged" />
+        <ListBox x:Name="SearchResultsListBox" />
+        <TextBlock x:Name="SearchTime" />
+    </StackPanel>
+</Window>

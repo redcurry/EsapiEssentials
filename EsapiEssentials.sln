@@ -27,6 +27,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36DF1C0F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.UnitTests", "tests\EsapiEssentials.UnitTests\EsapiEssentials.UnitTests.csproj", "{46821C78-494D-4BD4-8BA1-CC3B430C24F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6210D496-EDFA-4E63-B07C-8F5220613629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.EsapiService", "samples\EsapiEssentials.Samples.EsapiService\EsapiEssentials.Samples.EsapiService.csproj", "{A53DF156-A49B-4A38-AF1F-C4B806DE5495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.Standalone", "samples\EsapiEssentials.Samples.Standalone\EsapiEssentials.Samples.Standalone.csproj", "{34D1533F-B661-4ACB-803D-E1E7FCD6476E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.Standalone.Runner", "samples\EsapiEssentials.Samples.Standalone.Runner\EsapiEssentials.Samples.Standalone.Runner.csproj", "{DFD5D230-6584-4BEC-A03B-C243900F1441}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -77,12 +85,27 @@ Global
 		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Debug|x64.Build.0 = Debug|x64
 		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.ActiveCfg = Release|x64
 		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.Build.0 = Release|x64
+		{A53DF156-A49B-4A38-AF1F-C4B806DE5495}.Debug|x64.ActiveCfg = Debug|x64
+		{A53DF156-A49B-4A38-AF1F-C4B806DE5495}.Debug|x64.Build.0 = Debug|x64
+		{A53DF156-A49B-4A38-AF1F-C4B806DE5495}.Release|x64.ActiveCfg = Release|x64
+		{A53DF156-A49B-4A38-AF1F-C4B806DE5495}.Release|x64.Build.0 = Release|x64
+		{34D1533F-B661-4ACB-803D-E1E7FCD6476E}.Debug|x64.ActiveCfg = Debug|x64
+		{34D1533F-B661-4ACB-803D-E1E7FCD6476E}.Debug|x64.Build.0 = Debug|x64
+		{34D1533F-B661-4ACB-803D-E1E7FCD6476E}.Release|x64.ActiveCfg = Release|x64
+		{34D1533F-B661-4ACB-803D-E1E7FCD6476E}.Release|x64.Build.0 = Release|x64
+		{DFD5D230-6584-4BEC-A03B-C243900F1441}.Debug|x64.ActiveCfg = Debug|x64
+		{DFD5D230-6584-4BEC-A03B-C243900F1441}.Debug|x64.Build.0 = Debug|x64
+		{DFD5D230-6584-4BEC-A03B-C243900F1441}.Release|x64.ActiveCfg = Release|x64
+		{DFD5D230-6584-4BEC-A03B-C243900F1441}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{46821C78-494D-4BD4-8BA1-CC3B430C24F0} = {36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}
+		{A53DF156-A49B-4A38-AF1F-C4B806DE5495} = {6210D496-EDFA-4E63-B07C-8F5220613629}
+		{34D1533F-B661-4ACB-803D-E1E7FCD6476E} = {6210D496-EDFA-4E63-B07C-8F5220613629}
+		{DFD5D230-6584-4BEC-A03B-C243900F1441} = {6210D496-EDFA-4E63-B07C-8F5220613629}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09FB4B73-C18F-4F17-AA85-574F5938F47D}
