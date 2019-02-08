@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.StandaloneA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest.Launcher", "src\EsapiEssentials.WpfTest.Launcher\EsapiEssentials.WpfTest.Launcher.csproj", "{307F9256-6BF3-4589-9615-92F1D2211317}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials", "src\EsapiEssentials\EsapiEssentials.csproj", "{FDC15E5D-0179-42CF-B352-48B74B234454}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,10 @@ Global
 		{307F9256-6BF3-4589-9615-92F1D2211317}.Debug|x64.Build.0 = Debug|x64
 		{307F9256-6BF3-4589-9615-92F1D2211317}.Release|x64.ActiveCfg = Release|x64
 		{307F9256-6BF3-4589-9615-92F1D2211317}.Release|x64.Build.0 = Release|x64
+		{FDC15E5D-0179-42CF-B352-48B74B234454}.Debug|x64.ActiveCfg = Debug|x64
+		{FDC15E5D-0179-42CF-B352-48B74B234454}.Debug|x64.Build.0 = Debug|x64
+		{FDC15E5D-0179-42CF-B352-48B74B234454}.Release|x64.ActiveCfg = Release|x64
+		{FDC15E5D-0179-42CF-B352-48B74B234454}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
