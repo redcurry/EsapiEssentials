@@ -13,7 +13,8 @@ namespace EsapiEssentials.StandaloneAppLauncher
         {
             try
             {
-                Process.Start(FirstExeIn(AssemblyDir(Assembly.GetExecutingAssembly())));
+                var contextArgs = new ScriptContextArgs(context);
+                Process.Start(FirstExeIn(AssemblyDir(Assembly())), contextArgs.Args());
             }
             catch (Exception e)
             {
@@ -21,14 +22,13 @@ namespace EsapiEssentials.StandaloneAppLauncher
             }
         }
 
-        private static string FirstExeIn(string dir)
-        {
-            return Directory.GetFiles(dir, "*.exe").First();
-        }
+        private static string FirstExeIn(string dir) =>
+            Directory.GetFiles(dir, "*.exe").First();
 
-        private static string AssemblyDir(Assembly asm)
-        {
-            return Path.GetDirectoryName(asm.Location);
-        }
+        private static string AssemblyDir(Assembly asm) =>
+            Path.GetDirectoryName(asm.Location);
+
+        private static Assembly Assembly() =>
+            System.Reflection.Assembly.GetExecutingAssembly();
     }
 }

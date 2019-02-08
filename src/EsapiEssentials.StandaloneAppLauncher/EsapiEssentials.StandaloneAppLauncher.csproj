@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScriptContextArgs.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="LaunchException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
