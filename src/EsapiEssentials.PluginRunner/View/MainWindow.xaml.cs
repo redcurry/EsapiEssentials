@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace EsapiEssentials.PluginRunner
 {
@@ -8,6 +9,13 @@ namespace EsapiEssentials.PluginRunner
         {
             InitializeComponent();
             DataContext = vm;
+        }
+
+        private void PlansAndPlanSums_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Prevent selection for this ListBox
+            var listBox = (ListBox)sender;
+            listBox.UnselectAll();
         }
     }
 }

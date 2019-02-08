@@ -60,6 +60,7 @@
     <Compile Include="Async\EsapiServiceBase.cs" />
     <Compile Include="Async\LogInRequiredException.cs" />
     <Compile Include="Async\PatientNotOpenedException.cs" />
+    <Compile Include="Extensions\PatientExtensions.cs" />
     <Compile Include="Extensions\PlanningItemExtensions.cs" />
     <Compile Include="Extensions\StructureExtensions.cs" />
     <Compile Include="PatientSearch\Internal\PatientSearch.cs" />

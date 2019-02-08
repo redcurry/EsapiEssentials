@@ -11,5 +11,7 @@ namespace EsapiEssentials.PluginRunner
         Task ClosePatientAsync();
 
         Task<PatientMatch[]> SearchAsync(string searchText);
+
+        Task<PlanOrPlanSum[]> GetPlansAndPlanSumsAsync();
     }
 }

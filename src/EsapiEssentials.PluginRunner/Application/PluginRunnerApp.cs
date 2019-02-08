@@ -17,5 +17,13 @@ namespace EsapiEssentials.PluginRunner
 
         public async Task<IEnumerable<PatientMatch>> FindPatientMatchesAsync(string searchText) =>
             await _esapiService.SearchAsync(searchText);
+
+        public async Task<IEnumerable<PlanOrPlanSum>> GetPlansAndPlanSumsFor(string patientId)
+        {
+            await _esapiService.OpenPatientAsync(patientId);
+            var plansAndPlanSums = await _esapiService.GetPlansAndPlanSumsAsync();
+            await _esapiService.ClosePatientAsync();
+            return plansAndPlanSums;
+        }
     }
 }
