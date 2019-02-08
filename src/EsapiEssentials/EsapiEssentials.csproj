@@ -35,6 +35,7 @@
     <Reference Include="ParallelExtensionsExtras, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MSFT.ParallelExtensionsExtras.1.2.0\lib\ParallelExtensionsExtras.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -64,6 +65,9 @@
     <Compile Include="PatientSearch\Internal\PatientSearch.cs" />
     <Compile Include="PatientSearch\Internal\SearchPatient.cs" />
     <Compile Include="PatientSearch\PatientSummarySearch.cs" />
+    <Compile Include="Plugin\ScriptBaseWithoutWindow.cs" />
+    <Compile Include="Plugin\ScriptBase.cs" />
+    <Compile Include="Plugin\PluginScriptContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\AssemblySettings.cs" />
   </ItemGroup>
