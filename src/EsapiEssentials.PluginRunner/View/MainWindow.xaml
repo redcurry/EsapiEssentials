@@ -49,12 +49,18 @@
         <BooleanToVisibilityConverter x:Key="VisibilityConverter" />
     </Window.Resources>
 
-    <DockPanel
+    <Grid
         Margin="10"
         >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />  <!-- Patient search box -->
+            <RowDefinition Height="*"    />  <!-- Patient and plan list boxes-->
+            <RowDefinition Height="Auto" />  <!-- Run and exit buttons -->
+        </Grid.RowDefinitions>
 
+        <!-- Patient search box -->
         <StackPanel
-            DockPanel.Dock="Top"
+            Grid.Row="0"
             Orientation="Horizontal"
             >
             <TextBlock
@@ -76,9 +82,11 @@
             </TextBox>
         </StackPanel>
 
+        <!-- Patient and plan list boxes -->
         <UniformGrid
-            DockPanel.Dock="Top"
+            Grid.Row="1"
             Columns="2"
+            Margin="0,10,0,0"
             >
             <!-- Patient matches -->
             <ListBox
@@ -146,5 +154,17 @@
             </ListBox>
         </UniformGrid>
 
-    </DockPanel>
+        <!-- Run and exit buttons -->
+        <StackPanel
+            Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Margin="0,10,0,0"
+            >
+            <Button
+                Content="Run"
+                Command="{Binding RunScriptCommand}"
+                />
+        </StackPanel>
+    </Grid>
 </Window>
