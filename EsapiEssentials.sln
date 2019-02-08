@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Extensions"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Search", "src\EsapiEssentials.Search\EsapiEssentials.Search.csproj", "{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Settings", "src\EsapiEssentials.Settings\EsapiEssentials.Settings.csproj", "{5C67073F-74EB-4473-B046-9A0532CE5451}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.StandaloneAppLauncher", "src\EsapiEssentials.StandaloneAppLauncher\EsapiEssentials.StandaloneAppLauncher.csproj", "{53D36D53-A080-4907-9595-FF46D1D91134}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest.Launcher", "src\EsapiEssentials.WpfTest.Launcher\EsapiEssentials.WpfTest.Launcher.csproj", "{307F9256-6BF3-4589-9615-92F1D2211317}"
@@ -63,10 +61,6 @@ Global
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Debug|x64.Build.0 = Debug|x64
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.ActiveCfg = Release|x64
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.Build.0 = Release|x64
-		{5C67073F-74EB-4473-B046-9A0532CE5451}.Debug|x64.ActiveCfg = Debug|x64
-		{5C67073F-74EB-4473-B046-9A0532CE5451}.Debug|x64.Build.0 = Debug|x64
-		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|x64.ActiveCfg = Release|Any CPU
-		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|x64.Build.0 = Release|Any CPU
 		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.ActiveCfg = Debug|x64
 		{53D36D53-A080-4907-9595-FF46D1D91134}.Debug|x64.Build.0 = Debug|x64
 		{53D36D53-A080-4907-9595-FF46D1D91134}.Release|x64.ActiveCfg = Release|x64
