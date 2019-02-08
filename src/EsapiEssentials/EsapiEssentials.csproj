@@ -52,6 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppRunner\AppRunner.cs" />
+    <Compile Include="AppRunner\AppRunnerException.cs" />
+    <Compile Include="AppRunner\ScriptContextArgs.cs" />
     <Compile Include="Async\AsyncRunner.cs" />
     <Compile Include="Async\EsapiServiceBase.cs" />
     <Compile Include="Async\LogInRequiredException.cs" />
