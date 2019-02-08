@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using EsapiEssentials.Search.Internal;
+using EsapiEssentials.Internal;
 using NUnit.Framework;
 
-namespace EsapiEssentials.Search.Tests
+namespace EsapiEssentials.UnitTests
 {
     [TestFixture]
     public class PatientSummarySearchTests

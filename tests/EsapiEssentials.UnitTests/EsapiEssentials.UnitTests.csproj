@@ -8,8 +8,8 @@
     <ProjectGuid>{46821C78-494D-4BD4-8BA1-CC3B430C24F0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiEssentials.Search.Tests</RootNamespace>
-    <AssemblyName>EsapiEssentials.Search.Tests</AssemblyName>
+    <RootNamespace>EsapiEssentials.UnitTests</RootNamespace>
+    <AssemblyName>EsapiEssentials.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -47,17 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PatientSummarySearchTests.cs" />
+    <Compile Include="PatientSearch\PatientSummarySearchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\EsapiEssentials.Search\EsapiEssentials.Search.csproj">
-      <Project>{63d06514-db47-48be-a2fb-c639dba7adc3}</Project>
-      <Name>EsapiEssentials.Search</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\..\src\EsapiEssentials\EsapiEssentials.csproj">
+      <Project>{fdc15e5d-0179-42cf-b352-48b74b234454}</Project>
+      <Name>EsapiEssentials</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

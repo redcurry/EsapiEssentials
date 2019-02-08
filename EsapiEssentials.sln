@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Extensions"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Search", "src\EsapiEssentials.Search\EsapiEssentials.Search.csproj", "{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Search.Tests", "tests\EsapiEssentials.Search.Tests\EsapiEssentials.Search.Tests.csproj", "{46821C78-494D-4BD4-8BA1-CC3B430C24F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Settings", "src\EsapiEssentials.Settings\EsapiEssentials.Settings.csproj", "{5C67073F-74EB-4473-B046-9A0532CE5451}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.StandaloneAppLauncher", "src\EsapiEssentials.StandaloneAppLauncher\EsapiEssentials.StandaloneAppLauncher.csproj", "{53D36D53-A080-4907-9595-FF46D1D91134}"
@@ -26,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.WpfTest.Launcher", "src\EsapiEssentials.WpfTest.Launcher\EsapiEssentials.WpfTest.Launcher.csproj", "{307F9256-6BF3-4589-9615-92F1D2211317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials", "src\EsapiEssentials\EsapiEssentials.csproj", "{FDC15E5D-0179-42CF-B352-48B74B234454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.UnitTests", "tests\EsapiEssentials.UnitTests\EsapiEssentials.UnitTests.csproj", "{46821C78-494D-4BD4-8BA1-CC3B430C24F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +63,6 @@ Global
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Debug|x64.Build.0 = Debug|x64
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.ActiveCfg = Release|x64
 		{63D06514-DB47-48BE-A2FB-C639DBA7ADC3}.Release|x64.Build.0 = Release|x64
-		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Debug|x64.ActiveCfg = Debug|x64
-		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Debug|x64.Build.0 = Debug|x64
-		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.ActiveCfg = Release|x64
-		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.Build.0 = Release|x64
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Debug|x64.ActiveCfg = Debug|x64
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Debug|x64.Build.0 = Debug|x64
 		{5C67073F-74EB-4473-B046-9A0532CE5451}.Release|x64.ActiveCfg = Release|Any CPU
@@ -81,9 +79,16 @@ Global
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Debug|x64.Build.0 = Debug|x64
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Release|x64.ActiveCfg = Release|x64
 		{FDC15E5D-0179-42CF-B352-48B74B234454}.Release|x64.Build.0 = Release|x64
+		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Debug|x64.ActiveCfg = Debug|x64
+		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Debug|x64.Build.0 = Debug|x64
+		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.ActiveCfg = Release|x64
+		{46821C78-494D-4BD4-8BA1-CC3B430C24F0}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46821C78-494D-4BD4-8BA1-CC3B430C24F0} = {36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09FB4B73-C18F-4F17-AA85-574F5938F47D}

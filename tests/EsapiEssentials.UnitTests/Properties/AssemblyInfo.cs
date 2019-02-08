@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EsapiEssentials.Search.Tests")]
+[assembly: AssemblyTitle("EsapiEssentials.UnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michigan Medicine Radiation Oncology")]
-[assembly: AssemblyProduct("EsapiEssentials.Search.Tests")]
-[assembly: AssemblyCopyright("Copyright © Michigan Medicine Radiation Oncology 2018")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("EsapiEssentials.UnitTests")]
+[assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
