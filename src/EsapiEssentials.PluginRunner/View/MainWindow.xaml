@@ -50,6 +50,7 @@
     </Window.Resources>
 
     <Grid
+        FocusManager.FocusedElement="{Binding ElementName=SearchTextBox}"
         Margin="10"
         >
         <Grid.RowDefinitions>
@@ -61,17 +62,14 @@
         <!-- Patient search box -->
         <StackPanel
             Grid.Row="0"
-            Orientation="Horizontal"
             >
             <TextBlock
-                Text="Search patient:"
-                VerticalAlignment="Center"
+                Text="Search for patient (last name, first name, or ID):"
                 />
             <TextBox
                 Name="SearchTextBox"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
-                Width="150"
-                Margin="5,0,0,0"
+                Margin="0,5,0,0"
                 >
                 <!-- Call the SearchPatientCommand when the SearchText is updated in the view model -->
                 <i:Interaction.Triggers>
@@ -88,70 +86,99 @@
             Columns="2"
             Margin="0,10,0,0"
             >
-            <!-- Patient matches -->
-            <ListBox
-                ItemsSource="{Binding PatientMatches}"
-                SelectedItem="{Binding SelectedPatientMatch, NotifyOnSourceUpdated=True}"
-                >
-                <!-- Call the OpenPatientCommand when the SelectedItem is updated in the view model -->
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SourceUpdated">
-                        <i:InvokeCommandAction Command="{Binding OpenPatientCommand}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock>
-                            <Run Text="{Binding LastName}" />, <Run Text="{Binding FirstName}" /> (<Run Text="{Binding Id}" />)
-                        </TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <DockPanel Margin="0,0,5,0">
+                <TextBlock
+                    DockPanel.Dock="Top"
+                    Text="Patient:"
+                    />
+                <!-- Patient matches -->
+                <ListBox
+                    DockPanel.Dock="Top"
+                    ItemsSource="{Binding PatientMatches}"
+                    SelectedItem="{Binding SelectedPatientMatch, NotifyOnSourceUpdated=True}"
+                    Margin="0,5,0,0"
+                    >
+                    <!-- Call the OpenPatientCommand when the SelectedItem is updated in the view model -->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SourceUpdated">
+                            <i:InvokeCommandAction Command="{Binding OpenPatientCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Run Text="{Binding LastName}" />, <Run Text="{Binding FirstName}" /> (<Run Text="{Binding Id}" />)
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
 
-            <!-- Plans and plan sums for the selected patient -->
-            <ListBox
-                ItemsSource="{Binding Source={StaticResource PlansAndPlanSums}}"
-                SelectionChanged="PlansAndPlanSums_OnSelectionChanged"
-                >
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel>
-                            <CheckBox
-                                Content="{Binding Id}"
-                                IsChecked="{Binding IsInScope}"
-                                >
-                                <CheckBox.Style>
-                                    <Style TargetType="CheckBox">
-                                        <Setter Property="FontWeight" Value="Normal" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static pr:PlanType.PlanSum}">
-                                                <Setter Property="FontWeight" Value="Bold" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </CheckBox.Style>
-                            </CheckBox>
-                            <RadioButton
-                                IsChecked="{Binding IsActive}"
-                                GroupName="Active"
-                                HorizontalAlignment="Right"
-                                Visibility="{Binding CanBeActive, Converter={StaticResource VisibilityConverter}}"
-                                />
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.GroupStyle>
-                    <GroupStyle
-                        HeaderTemplate="{StaticResource CourseHeaderTemplate}"
-                        ContainerStyle="{StaticResource CourseContainerStyle}"
+            <DockPanel Margin="5,0,0,0">
+                <DockPanel
+                    DockPanel.Dock="Top"
+                    HorizontalAlignment="Stretch"
+                    >
+                    <TextBlock
+                        Text="Plans and plan sums in scope:"
                         />
-                </ListBox.GroupStyle>
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
-            </ListBox>
+                    <TextBlock
+                        Text="Active plan"
+                        HorizontalAlignment="Right"
+                        />
+                </DockPanel>
+                <TextBlock
+                    DockPanel.Dock="Bottom"
+                    Text="Plan sums are shown in bold."
+                    Margin="0,5,0,0"
+                    />
+                <!-- Plans and plan sums for the selected patient -->
+                <ListBox
+                    DockPanel.Dock="Top"
+                    ItemsSource="{Binding Source={StaticResource PlansAndPlanSums}}"
+                    SelectionChanged="PlansAndPlanSums_OnSelectionChanged"
+                    Margin="0,5,0,0"
+                    >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <CheckBox
+                                    Content="{Binding Id}"
+                                    IsChecked="{Binding IsInScope}"
+                                    >
+                                    <CheckBox.Style>
+                                        <Style TargetType="CheckBox">
+                                            <Setter Property="FontWeight" Value="Normal" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Type}" Value="{x:Static pr:PlanType.PlanSum}">
+                                                    <Setter Property="FontWeight" Value="Bold" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </CheckBox.Style>
+                                </CheckBox>
+                                <RadioButton
+                                    IsChecked="{Binding IsActive}"
+                                    GroupName="Active"
+                                    HorizontalAlignment="Right"
+                                    Visibility="{Binding CanBeActive, Converter={StaticResource VisibilityConverter}}"
+                                    />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.GroupStyle>
+                        <GroupStyle
+                            HeaderTemplate="{StaticResource CourseHeaderTemplate}"
+                            ContainerStyle="{StaticResource CourseContainerStyle}"
+                            />
+                    </ListBox.GroupStyle>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </DockPanel>
         </UniformGrid>
 
         <!-- Run and exit buttons -->
@@ -164,6 +191,7 @@
             <Button
                 Content="Run"
                 Command="{Binding RunCommand}"
+                Width="75"
                 />
         </StackPanel>
     </Grid>

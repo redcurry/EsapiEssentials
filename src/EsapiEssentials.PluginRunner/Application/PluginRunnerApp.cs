@@ -72,8 +72,8 @@ namespace EsapiEssentials.PluginRunner
 
         private PluginScriptContext CreateScriptContext(Patient patient, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
-            var planningItems = patient.GetPlanningItems();
-            var planningItemsInScope = plansAndPlanSumsInScope.Select(p => FindPlanningItem(p, planningItems));
+            var planningItems = patient?.GetPlanningItems();
+            var planningItemsInScope = plansAndPlanSumsInScope?.Select(p => FindPlanningItem(p, planningItems));
             var planSetup = activePlan != null ? FindPlanningItem(activePlan, planningItems) as PlanSetup : null;
 
             return new PluginScriptContext
@@ -96,7 +96,7 @@ namespace EsapiEssentials.PluginRunner
         }
 
         private PlanningItem FindPlanningItem(PlanOrPlanSum planOrPlanSum, IEnumerable<PlanningItem> planningItems) =>
-            planningItems.FirstOrDefault(p => p.GetCourse().Id == planOrPlanSum.CourseId && p.Id == planOrPlanSum.Id);
+            planningItems?.FirstOrDefault(p => p.GetCourse().Id == planOrPlanSum.CourseId && p.Id == planOrPlanSum.Id);
 
         private PatientMatch CreatePatientMatch(PatientSummary ps) =>
             new PatientMatch

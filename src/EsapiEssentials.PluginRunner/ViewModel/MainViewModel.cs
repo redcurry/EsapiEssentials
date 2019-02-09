@@ -52,6 +52,10 @@ namespace EsapiEssentials.PluginRunner
         private void SearchPatient()
         {
             PatientMatches = _app.FindPatientMatchesAsync(SearchText);
+
+            // New matches clear the selected patient, so clear any plans or plan sums
+            // from the previously selected patient (if any)
+            PlansAndPlanSums = null;
         }
 
         private void OpenPatient()
