@@ -9,7 +9,7 @@ namespace EsapiEssentials.PluginRunner
 {
     internal class PluginRunnerApp
     {
-        private const string ApplicationName = "ExternalBeamPlanning";
+        private const string ApplicationName = "External Beam Planning";
         private const string VersionInfo = "13.6.32";
 
         private readonly ScriptBase _script;
@@ -50,14 +50,24 @@ namespace EsapiEssentials.PluginRunner
 
         public void RunScript(string patientId, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
-            var patient = _esapiApp.OpenPatientById(patientId);
-            var context = CreateScriptContext(patient, plansAndPlanSumsInScope, activePlan);
+            try
+            {
+                var patient = _esapiApp.OpenPatientById(patientId);
+                var context = CreateScriptContext(patient, plansAndPlanSumsInScope, activePlan);
 
-            var window = new Window();
-            _script.Execute(context, window);
-            window.ShowDialog();
-
-            _esapiApp.ClosePatient();
+                var window = new Window();
+                _script.Execute(context, window);
+                window.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                // Mimic Eclipse by showing a message box on a script Exception
+                MessageBox.Show(e.Message, ApplicationName, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            finally
+            {
+                _esapiApp.ClosePatient();
+            }
         }
 
         private PluginScriptContext CreateScriptContext(Patient patient, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
