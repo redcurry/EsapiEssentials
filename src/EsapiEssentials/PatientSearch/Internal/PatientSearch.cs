@@ -21,7 +21,10 @@ namespace EsapiEssentials.Internal
                 return Enumerable.Empty<SearchPatient>();
 
             var searchTerms = GetSearchTerms(searchText);
-            return _patients.Where(p => IsMatch(p, searchTerms)).Take(_maxResults);
+            return _patients
+                .Where(p => IsMatch(p, searchTerms))
+                .OrderByDescending(p => p.CreationDateTime)
+                .Take(_maxResults);
         }
 
         private bool IsMatch(SearchPatient patient, string[] searchTerms)

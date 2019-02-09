@@ -57,7 +57,8 @@ namespace EsapiEssentials
             {
                 Id = patientSummary.Id,
                 FirstName = patientSummary.FirstName,
-                LastName = patientSummary.LastName
+                LastName = patientSummary.LastName,
+                CreationDateTime = patientSummary.CreationDateTime
             };
 
         private IEnumerable<PatientSummary> GetPatientSummaries(IEnumerable<SearchPatient> patients) =>
