@@ -54,43 +54,34 @@
         Margin="10"
         >
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />  <!-- Patient search box -->
             <RowDefinition Height="*"    />  <!-- Patient and plan list boxes-->
             <RowDefinition Height="Auto" />  <!-- Run and exit buttons -->
         </Grid.RowDefinitions>
 
-        <!-- Patient search box -->
-        <StackPanel
-            Grid.Row="0"
-            >
-            <TextBlock
-                Text="Search for patient (last name, first name, or ID):"
-                />
-            <TextBox
-                Name="SearchTextBox"
-                Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
-                Margin="0,5,0,0"
-                >
-                <!-- Call the SearchPatientCommand when the SearchText is updated in the view model -->
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SourceUpdated">
-                        <i:InvokeCommandAction Command="{Binding SearchPatientCommand}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </TextBox>
-        </StackPanel>
-
         <!-- Patient and plan list boxes -->
         <UniformGrid
-            Grid.Row="1"
+            Grid.Row="0"
             Columns="2"
-            Margin="0,10,0,0"
             >
             <DockPanel Margin="0,0,5,0">
                 <TextBlock
                     DockPanel.Dock="Top"
-                    Text="Patient:"
+                    Text="Patient (search by last name, first name, or ID):"
                     />
+                <!-- Search box -->
+                <TextBox
+                    DockPanel.Dock="Top"
+                    Name="SearchTextBox"
+                    Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
+                    Margin="0,5,0,0"
+                    >
+                    <!-- Call the SearchPatientCommand when the SearchText is updated in the view model -->
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SourceUpdated">
+                            <i:InvokeCommandAction Command="{Binding SearchPatientCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
                 <!-- Patient matches -->
                 <ListBox
                     DockPanel.Dock="Top"
@@ -183,7 +174,7 @@
 
         <!-- Run and exit buttons -->
         <StackPanel
-            Grid.Row="2"
+            Grid.Row="1"
             Orientation="Horizontal"
             HorizontalAlignment="Right"
             Margin="0,10,0,0"
