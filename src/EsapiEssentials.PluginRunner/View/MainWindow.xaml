@@ -163,7 +163,7 @@
             >
             <Button
                 Content="Run"
-                Command="{Binding RunScriptCommand}"
+                Command="{Binding RunCommand}"
                 />
         </StackPanel>
     </Grid>

@@ -68,14 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\PluginRunnerApp.cs" />
-    <Compile Include="Esapi\EsapiService.cs" />
-    <Compile Include="Esapi\IEsapiService.cs" />
-    <Compile Include="Esapi\PlanOrPlanSum.cs" />
-    <Compile Include="Esapi\PlanType.cs" />
+    <Compile Include="Application\PlanOrPlanSum.cs" />
+    <Compile Include="Application\PlanType.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ScriptRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Esapi\PatientMatch.cs" />
+    <Compile Include="Application\PatientMatch.cs" />
     <Compile Include="ViewModel\PlanOrSumViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -36,8 +36,10 @@ namespace EsapiEssentials.PluginRunner
             set => Set(ref _selectedPatientMatch, value);
         }
 
-        private IEnumerable<PlanOrPlanSumViewModel> _plansAndPlanSums;
-        public IEnumerable<PlanOrPlanSumViewModel> PlansAndPlanSums
+        // Must not be IEnumerable or it re-creates the view models
+        // when accessed in OpenPatient(), losing which items are active
+        private IList<PlanOrPlanSumViewModel> _plansAndPlanSums;
+        public IList<PlanOrPlanSumViewModel> PlansAndPlanSums
         {
             get => _plansAndPlanSums;
             set => Set(ref _plansAndPlanSums, value);
@@ -45,16 +47,17 @@ namespace EsapiEssentials.PluginRunner
 
         public ICommand SearchPatientCommand => new RelayCommand(SearchPatient);
         public ICommand OpenPatientCommand => new RelayCommand(OpenPatient, CanOpenPatient);
+        public ICommand RunCommand => new RelayCommand(Run);
 
-        private async void SearchPatient()
+        private void SearchPatient()
         {
-            PatientMatches = await _app.FindPatientMatchesAsync(SearchText);
+            PatientMatches = _app.FindPatientMatchesAsync(SearchText);
         }
 
-        private async void OpenPatient()
+        private void OpenPatient()
         {
-            var plansOrPlanSums = await _app.GetPlansAndPlanSumsFor(SelectedPatientMatch.Id);
-            PlansAndPlanSums = plansOrPlanSums.Select(CreatePlanOrPlanSumViewModel);
+            var plansOrPlanSums = _app.GetPlansAndPlanSumsFor(SelectedPatientMatch.Id);
+            PlansAndPlanSums = plansOrPlanSums.Select(CreatePlanOrPlanSumViewModel).ToList();
         }
 
         private bool CanOpenPatient() =>
@@ -66,6 +69,22 @@ namespace EsapiEssentials.PluginRunner
                 Type = planOrPlanSum.Type,
                 Id = planOrPlanSum.Id,
                 CourseId = planOrPlanSum.CourseId
+            };
+
+        private void Run()
+        {
+            var plansAndPlanSumsInScope = PlansAndPlanSums?.Select(CreatePlanOrPlanSum);
+            var activePlanVm = PlansAndPlanSums?.FirstOrDefault(p => p.IsActive);
+            var activePlan = activePlanVm != null ? CreatePlanOrPlanSum(activePlanVm) : null;
+            _app.RunScript(SelectedPatientMatch?.Id, plansAndPlanSumsInScope, activePlan);
+        }
+
+        private PlanOrPlanSum CreatePlanOrPlanSum(PlanOrPlanSumViewModel vm) =>
+            new PlanOrPlanSum
+            {
+                Type = vm.Type,
+                Id = vm.Id,
+                CourseId = vm.CourseId
             };
     }
 }
