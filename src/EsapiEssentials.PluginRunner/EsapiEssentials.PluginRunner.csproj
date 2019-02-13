@@ -70,6 +70,7 @@
     <Compile Include="Application\PluginRunner.cs" />
     <Compile Include="Application\PlanOrPlanSum.cs" />
     <Compile Include="Application\PlanType.cs" />
+    <Compile Include="View\UnderscoreConverter.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ScriptRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

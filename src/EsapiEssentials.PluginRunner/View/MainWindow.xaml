@@ -13,6 +13,8 @@
     >
 
     <Window.Resources>
+        <pr:UnderscoreConverter x:Key="UnderscoreConverter" />
+
         <!-- Sorted and grouped plans and plan sums -->
         <CollectionViewSource x:Key="PlansAndPlanSums" Source="{Binding PlansAndPlanSums}">
             <CollectionViewSource.SortDescriptions>
@@ -26,7 +28,7 @@
         <!-- View for course group headings -->
         <DataTemplate x:Key="CourseHeaderTemplate">
             <TextBlock
-                Text="{Binding Name, StringFormat=Course: \{0\}}"
+                Text="{Binding Name, StringFormat=Course: \{0\}, Converter={StaticResource UnderscoreConverter}}"
                 FontWeight="Bold"
                 Opacity="0.6"
                 />
@@ -134,7 +136,7 @@
                         <DataTemplate>
                             <DockPanel>
                                 <CheckBox
-                                    Content="{Binding Id}"
+                                    Content="{Binding Id, Converter={StaticResource UnderscoreConverter}}"
                                     IsChecked="{Binding IsInScope}"
                                     >
                                     <CheckBox.Style>
