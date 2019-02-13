@@ -65,11 +65,18 @@
       <HintPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182\VMS.TPS.Common.Model.Types.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="YamlDotNet, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\YamlDotNet.5.4.0\lib\net45\YamlDotNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persistence\IDataRepository.cs" />
     <Compile Include="Application\PluginRunner.cs" />
     <Compile Include="Application\PlanOrPlanSum.cs" />
     <Compile Include="Application\PlanType.cs" />
+    <Compile Include="Persistence\RecentEntry.cs" />
+    <Compile Include="Persistence\DataRepository.cs" />
+    <Compile Include="Persistence\Data.cs" />
     <Compile Include="View\UnderscoreConverter.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ScriptRunner.cs" />

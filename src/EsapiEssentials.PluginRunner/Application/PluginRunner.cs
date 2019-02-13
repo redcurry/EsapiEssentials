@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using VMS.TPS.Common.Model.API;
 using Application = VMS.TPS.Common.Model.API.Application;
@@ -9,6 +11,7 @@ namespace EsapiEssentials.PluginRunner
 {
     internal class PluginRunner : IDisposable
     {
+        private const string DataFileName = "runner.yaml";
         private const string ApplicationName = "External Beam Planning";
         private const string VersionInfo = "13.6.32";
         private const int MaxSearchResults = 20;
@@ -18,6 +21,7 @@ namespace EsapiEssentials.PluginRunner
 
         private readonly Application _esapiApp;
         private readonly PatientSummarySearch _search;
+        private readonly IDataRepository _dataRepository;
 
         public PluginRunner(ScriptBase script, string userId, string password)
         {
@@ -25,6 +29,7 @@ namespace EsapiEssentials.PluginRunner
 
             _esapiApp = Application.CreateApplication(userId, password);
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
+            _dataRepository = new DataRepository(GetDataPath());
         }
 
         public PluginRunner(ScriptBaseWithoutWindow scriptWithoutWindow, string userId, string password)
@@ -33,6 +38,7 @@ namespace EsapiEssentials.PluginRunner
 
             _esapiApp = Application.CreateApplication(userId, password);
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
+            _dataRepository = new DataRepository(GetDataPath());
         }
 
         public void Dispose()
@@ -59,6 +65,8 @@ namespace EsapiEssentials.PluginRunner
         {
             try
             {
+                SaveRecent(patientId, plansAndPlanSumsInScope, activePlan);
+
                 var patient = _esapiApp.OpenPatientById(patientId);
                 var context = CreateScriptContext(patient, plansAndPlanSumsInScope, activePlan);
 
@@ -82,6 +90,28 @@ namespace EsapiEssentials.PluginRunner
             {
                 _esapiApp.ClosePatient();
             }
+        }
+
+        public Data GetSavedData() =>
+            _dataRepository.Load();
+
+        private string GetDataPath() =>
+            Path.Combine(GetAssemblyDirectory(), DataFileName);
+
+        private string GetAssemblyDirectory() =>
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+        private void SaveRecent(string patientId, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
+        {
+            var data = GetSavedData();
+            var recent = new RecentEntry
+            {
+                PatientId = patientId,
+                PlansAndPlanSumsInScope = plansAndPlanSumsInScope.ToList(),
+                ActivePlan = activePlan
+            };
+            data.Recents.Add(recent);
+            _dataRepository.Save(data);
         }
 
         private PluginScriptContext CreateScriptContext(Patient patient, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
