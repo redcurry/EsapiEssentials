@@ -1,16 +1,16 @@
-﻿namespace EsapiEssentials.PluginRunner
+﻿using System;
+
+namespace EsapiEssentials.PluginRunner
 {
-    public class ScriptRunner
+    public static class ScriptRunner
     {
         public static void Run(ScriptBase script)
         {
-            var app = new PluginRunnerApp(script);
-            app.LogInToEsapi();
+            var runner = new PluginRunner(script);
 
-            var vm = new MainViewModel(app);
+            var vm = new MainViewModel(runner);
             var window = new MainWindow(vm);
-
-            window.Closed += (sender, args) => app.LogOutFromEsapi();
+            window.Closed += (o, e) => runner.Dispose();
 
             window.Show();
         }

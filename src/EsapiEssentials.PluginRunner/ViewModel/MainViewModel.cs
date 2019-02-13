@@ -8,11 +8,11 @@ namespace EsapiEssentials.PluginRunner
 {
     internal class MainViewModel : ViewModelBase
     {
-        private readonly PluginRunnerApp _app;
+        private readonly PluginRunner _runner;
 
-        public MainViewModel(PluginRunnerApp app)
+        public MainViewModel(PluginRunner runner)
         {
-            _app = app;
+            _runner = runner;
         }
 
         private string _searchText;
@@ -46,26 +46,22 @@ namespace EsapiEssentials.PluginRunner
         }
 
         public ICommand SearchPatientCommand => new RelayCommand(SearchPatient);
-        public ICommand OpenPatientCommand => new RelayCommand(OpenPatient, CanOpenPatient);
+        public ICommand OpenPatientCommand => new RelayCommand(OpenPatient);
         public ICommand RunCommand => new RelayCommand(Run);
 
         private void SearchPatient()
         {
-            PatientMatches = _app.FindPatientMatchesAsync(SearchText);
+            PatientMatches = _runner.FindPatientMatches(SearchText);
 
-            // New matches clear the selected patient, so clear any plans or plan sums
-            // from the previously selected patient (if any)
+            SelectedPatientMatch = null;
             PlansAndPlanSums = null;
         }
 
         private void OpenPatient()
         {
-            var plansOrPlanSums = _app.GetPlansAndPlanSumsFor(SelectedPatientMatch.Id);
-            PlansAndPlanSums = plansOrPlanSums.Select(CreatePlanOrPlanSumViewModel).ToList();
+            var plansAndPlanSums = _runner.GetPlansAndPlanSumsFor(SelectedPatientMatch?.Id);
+            PlansAndPlanSums = plansAndPlanSums.Select(CreatePlanOrPlanSumViewModel).ToList();
         }
-
-        private bool CanOpenPatient() =>
-            SelectedPatientMatch != null;
 
         private PlanOrPlanSumViewModel CreatePlanOrPlanSumViewModel(PlanOrPlanSum planOrPlanSum) =>
             new PlanOrPlanSumViewModel
@@ -77,11 +73,14 @@ namespace EsapiEssentials.PluginRunner
 
         private void Run()
         {
-            var plansAndPlanSumsInScope = PlansAndPlanSums?.Select(CreatePlanOrPlanSum);
-            var activePlanVm = PlansAndPlanSums?.FirstOrDefault(p => p.IsActive);
-            var activePlan = activePlanVm != null ? CreatePlanOrPlanSum(activePlanVm) : null;
-            _app.RunScript(SelectedPatientMatch?.Id, plansAndPlanSumsInScope, activePlan);
+            _runner.RunScript(SelectedPatientMatch?.Id, GetPlansAndPlanSumsInScope(), GetActivePlan());
         }
+
+        private PlanOrPlanSum[] GetPlansAndPlanSumsInScope() =>
+            PlansAndPlanSums?.Where(p => p.IsInScope).Select(CreatePlanOrPlanSum).ToArray();
+
+        private PlanOrPlanSum GetActivePlan() =>
+            PlansAndPlanSums?.Where(p => p.IsActive).Select(CreatePlanOrPlanSum).FirstOrDefault();
 
         private PlanOrPlanSum CreatePlanOrPlanSum(PlanOrPlanSumViewModel vm) =>
             new PlanOrPlanSum

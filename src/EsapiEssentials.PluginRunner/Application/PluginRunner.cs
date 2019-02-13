@@ -7,40 +7,37 @@ using Application = VMS.TPS.Common.Model.API.Application;
 
 namespace EsapiEssentials.PluginRunner
 {
-    internal class PluginRunnerApp
+    internal class PluginRunner : IDisposable
     {
         private const string ApplicationName = "External Beam Planning";
         private const string VersionInfo = "13.6.32";
+        private const int MaxSearchResults = 20;
 
         private readonly ScriptBase _script;
+        private readonly Application _esapiApp;
+        private readonly PatientSummarySearch _search;
 
-        private Application _esapiApp;
-        private PatientSummarySearch _search;
-
-        public PluginRunnerApp(ScriptBase script)
+        public PluginRunner(ScriptBase script)
         {
             _script = script;
-        }
 
-        public void LogInToEsapi()
-        {
             _esapiApp = Application.CreateApplication(null, null);
-            _search = new PatientSummarySearch(_esapiApp.PatientSummaries, 20);
+            _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
         }
 
-        public void LogOutFromEsapi()
+        public void Dispose()
         {
             _esapiApp.Dispose();
         }
 
-        public IEnumerable<PatientMatch> FindPatientMatchesAsync(string searchText) =>
-            _search.FindMatches(searchText).Select(CreatePatientMatch);
+        public PatientMatch[] FindPatientMatches(string searchText) =>
+            _search.FindMatches(searchText).Select(CreatePatientMatch).ToArray();
 
-        public IEnumerable<PlanOrPlanSum> GetPlansAndPlanSumsFor(string patientId)
+        public PlanOrPlanSum[] GetPlansAndPlanSumsFor(string patientId)
         {
             var patient = _esapiApp.OpenPatientById(patientId);
 
-            // Must do ToArray before closing patient
+            // Must call ToArray() before closing the patient
             var plansAndPlanSums = patient.GetPlanningItems().Select(CreatePlanOrPlanSum).ToArray();
 
             _esapiApp.ClosePatient();
@@ -61,7 +58,7 @@ namespace EsapiEssentials.PluginRunner
             }
             catch (Exception e)
             {
-                // Mimic Eclipse by showing a message box on a script Exception
+                // Mimic Eclipse by showing a message box when an exception is thrown
                 MessageBox.Show(e.Message, ApplicationName, MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             finally
@@ -72,9 +69,9 @@ namespace EsapiEssentials.PluginRunner
 
         private PluginScriptContext CreateScriptContext(Patient patient, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
-            var planningItems = patient?.GetPlanningItems();
-            var planningItemsInScope = plansAndPlanSumsInScope?.Select(p => FindPlanningItem(p, planningItems));
-            var planSetup = activePlan != null ? FindPlanningItem(activePlan, planningItems) as PlanSetup : null;
+            var planningItems = patient?.GetPlanningItems().ToArray();
+            var planningItemsInScope = FindPlanningItems(plansAndPlanSumsInScope, planningItems);
+            var planSetup = FindPlanningItem(activePlan, planningItems) as PlanSetup;
 
             return new PluginScriptContext
             {
@@ -86,17 +83,20 @@ namespace EsapiEssentials.PluginRunner
                 PlanSetup = planSetup,
                 ExternalPlanSetup = planSetup as ExternalPlanSetup,
                 BrachyPlanSetup = planSetup as BrachyPlanSetup,
-                PlansInScope = planningItemsInScope.Where(p => p is PlanSetup).Cast<PlanSetup>(),
-                ExternalPlansInScope = planningItemsInScope.Where(p => p is ExternalPlanSetup).Cast<ExternalPlanSetup>(),
-                BrachyPlansInScope = planningItemsInScope.Where(p => p is BrachyPlanSetup).Cast<BrachyPlanSetup>(),
-                PlanSumsInScope = planningItemsInScope.Where(p => p is PlanSum).Cast<PlanSum>(),
+                PlansInScope = planningItemsInScope?.Where(p => p is PlanSetup).Cast<PlanSetup>(),
+                ExternalPlansInScope = planningItemsInScope?.Where(p => p is ExternalPlanSetup).Cast<ExternalPlanSetup>(),
+                BrachyPlansInScope = planningItemsInScope?.Where(p => p is BrachyPlanSetup).Cast<BrachyPlanSetup>(),
+                PlanSumsInScope = planningItemsInScope?.Where(p => p is PlanSum).Cast<PlanSum>(),
                 ApplicationName = ApplicationName,
                 VersionInfo = VersionInfo
             };
         }
 
+        private PlanningItem[] FindPlanningItems(IEnumerable<PlanOrPlanSum> plansAndPlanSums, IEnumerable<PlanningItem> planningItems) =>
+            plansAndPlanSums?.Select(p => FindPlanningItem(p, planningItems)).ToArray();
+
         private PlanningItem FindPlanningItem(PlanOrPlanSum planOrPlanSum, IEnumerable<PlanningItem> planningItems) =>
-            planningItems?.FirstOrDefault(p => p.GetCourse().Id == planOrPlanSum.CourseId && p.Id == planOrPlanSum.Id);
+            planningItems?.FirstOrDefault(p => p.GetCourse().Id == planOrPlanSum?.CourseId && p.Id == planOrPlanSum?.Id);
 
         private PatientMatch CreatePatientMatch(PatientSummary ps) =>
             new PatientMatch
