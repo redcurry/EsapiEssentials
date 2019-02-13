@@ -48,7 +48,7 @@ namespace EsapiEssentials.PluginRunner
             var patient = _esapiApp.OpenPatientById(patientId);
 
             // Must call ToArray() before closing the patient
-            var plansAndPlanSums = patient.GetPlanningItems().Select(CreatePlanOrPlanSum).ToArray();
+            var plansAndPlanSums = patient?.GetPlanningItems().Select(CreatePlanOrPlanSum).ToArray();
 
             _esapiApp.ClosePatient();
 

@@ -60,7 +60,7 @@ namespace EsapiEssentials.PluginRunner
         private void OpenPatient()
         {
             var plansAndPlanSums = _runner.GetPlansAndPlanSumsFor(SelectedPatientMatch?.Id);
-            PlansAndPlanSums = plansAndPlanSums.Select(CreatePlanOrPlanSumViewModel).ToList();
+            PlansAndPlanSums = plansAndPlanSums?.Select(CreatePlanOrPlanSumViewModel).ToList();
         }
 
         private PlanOrPlanSumViewModel CreatePlanOrPlanSumViewModel(PlanOrPlanSum planOrPlanSum) =>

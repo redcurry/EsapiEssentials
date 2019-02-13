@@ -6,7 +6,7 @@ namespace EsapiEssentials.PluginRunner.TestWithoutWindow
     {
         public override void Execute(PluginScriptContext context)
         {
-            MessageBox.Show(context.Patient.Id);
+            MessageBox.Show(context.Patient?.Id ?? "No patient opened.");
         }
     }
 }
