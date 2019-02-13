@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.PluginRunne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.PluginRunner.Test", "tests\EsapiEssentials.PluginRunner.Test\EsapiEssentials.PluginRunner.Test.csproj", "{B7607B67-E6BB-4BD7-BE8C-0510A9C15201}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.PluginRunner.TestWithoutWindow", "tests\EsapiEssentials.PluginRunner.TestWithoutWindow\EsapiEssentials.PluginRunner.TestWithoutWindow.csproj", "{30439CEE-0080-4678-A2C1-542DCC192BDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,6 +57,10 @@ Global
 		{B7607B67-E6BB-4BD7-BE8C-0510A9C15201}.Debug|x64.Build.0 = Debug|x64
 		{B7607B67-E6BB-4BD7-BE8C-0510A9C15201}.Release|x64.ActiveCfg = Release|x64
 		{B7607B67-E6BB-4BD7-BE8C-0510A9C15201}.Release|x64.Build.0 = Release|x64
+		{30439CEE-0080-4678-A2C1-542DCC192BDC}.Debug|x64.ActiveCfg = Debug|x64
+		{30439CEE-0080-4678-A2C1-542DCC192BDC}.Debug|x64.Build.0 = Debug|x64
+		{30439CEE-0080-4678-A2C1-542DCC192BDC}.Release|x64.ActiveCfg = Release|x64
+		{30439CEE-0080-4678-A2C1-542DCC192BDC}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{34D1533F-B661-4ACB-803D-E1E7FCD6476E} = {6210D496-EDFA-4E63-B07C-8F5220613629}
 		{DFD5D230-6584-4BEC-A03B-C243900F1441} = {6210D496-EDFA-4E63-B07C-8F5220613629}
 		{B7607B67-E6BB-4BD7-BE8C-0510A9C15201} = {36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}
+		{30439CEE-0080-4678-A2C1-542DCC192BDC} = {36DF1C0F-8BB5-4DD1-8F80-5C537D3690C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09FB4B73-C18F-4F17-AA85-574F5938F47D}
