@@ -19,19 +19,19 @@ namespace EsapiEssentials.PluginRunner
         private readonly Application _esapiApp;
         private readonly PatientSummarySearch _search;
 
-        public PluginRunner(ScriptBase script)
+        public PluginRunner(ScriptBase script, string userId, string password)
         {
             _script = script;
 
-            _esapiApp = Application.CreateApplication(null, null);
+            _esapiApp = Application.CreateApplication(userId, password);
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
         }
 
-        public PluginRunner(ScriptBaseWithoutWindow scriptWithoutWindow)
+        public PluginRunner(ScriptBaseWithoutWindow scriptWithoutWindow, string userId, string password)
         {
             _scriptWithoutWindow = scriptWithoutWindow;
 
-            _esapiApp = Application.CreateApplication(null, null);
+            _esapiApp = Application.CreateApplication(userId, password);
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
         }
 

@@ -2,11 +2,11 @@
 {
     public static class ScriptRunner
     {
-        public static void Run(ScriptBase script) =>
-            RunWith(new PluginRunner(script));
+        public static void Run(ScriptBase script, string userId = null, string password = null) =>
+            RunWith(new PluginRunner(script, userId, password));
 
-        public static void Run(ScriptBaseWithoutWindow script) =>
-            RunWith(new PluginRunner(script));
+        public static void Run(ScriptBaseWithoutWindow script, string userId = null, string password = null) =>
+            RunWith(new PluginRunner(script, userId, password));
 
         private static void RunWith(PluginRunner runner)
         {
