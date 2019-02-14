@@ -19,27 +19,34 @@ namespace EsapiEssentials.PluginRunner
         private readonly ScriptBase _script;
         private readonly ScriptBaseWithoutWindow _scriptWithoutWindow;
 
-        private readonly Application _esapiApp;
-        private readonly PatientSummarySearch _search;
-        private readonly IDataRepository _dataRepository;
+        private Application _esapiApp;
+        private PatientSummarySearch _search;
+        private IDataRepository _dataRepository;
 
         public PluginRunner(ScriptBase script, string userId, string password)
         {
             _script = script;
-
-            _esapiApp = Application.CreateApplication(userId, password);
-            _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
-            _dataRepository = new DataRepository(GetDataPath());
+            Initialize(userId, password);
         }
 
         public PluginRunner(ScriptBaseWithoutWindow scriptWithoutWindow, string userId, string password)
         {
             _scriptWithoutWindow = scriptWithoutWindow;
+            Initialize(userId, password);
+        }
 
+        private void Initialize(string userId, string password)
+        {
             _esapiApp = Application.CreateApplication(userId, password);
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
             _dataRepository = new DataRepository(GetDataPath());
         }
+
+        private string GetDataPath() =>
+            Path.Combine(GetAssemblyDirectory(), DataFileName);
+
+        private string GetAssemblyDirectory() =>
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         public void Dispose()
         {
@@ -92,18 +99,9 @@ namespace EsapiEssentials.PluginRunner
             }
         }
 
-        public Data GetSavedData() =>
-            _dataRepository.Load();
-
-        private string GetDataPath() =>
-            Path.Combine(GetAssemblyDirectory(), DataFileName);
-
-        private string GetAssemblyDirectory() =>
-            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
         private void SaveRecent(string patientId, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
-            var data = GetSavedData();
+            var data = _dataRepository.Load();
             var recent = new RecentEntry
             {
                 PatientId = patientId,
