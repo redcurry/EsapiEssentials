@@ -99,13 +99,25 @@ namespace EsapiEssentials.PluginRunner
             }
         }
 
+        public void RunScript(RecentEntry recent)
+        {
+            if (recent == null) return;
+            RunScript(recent.PatientId, recent.PlansAndPlanSumsInScope, recent.ActivePlan);
+        }
+
+        public IList<RecentEntry> GetRecentEntries()
+        {
+            var data = _dataRepository.Load();
+            return data?.Recents;
+        }
+
         private void SaveRecent(string patientId, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
             var data = _dataRepository.Load();
             var recent = new RecentEntry
             {
                 PatientId = patientId,
-                PlansAndPlanSumsInScope = plansAndPlanSumsInScope.ToList(),
+                PlansAndPlanSumsInScope = plansAndPlanSumsInScope?.ToList(),
                 ActivePlan = activePlan
             };
             data.Recents.Add(recent);

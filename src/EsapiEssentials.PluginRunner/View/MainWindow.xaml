@@ -14,6 +14,7 @@
 
     <Window.Resources>
         <pr:UnderscoreConverter x:Key="UnderscoreConverter" />
+        <pr:PlansAndPlanSumsConverter x:Key="PlansAndPlanSumsConverter" />
 
         <!-- Sorted and grouped plans and plan sums -->
         <CollectionViewSource x:Key="PlansAndPlanSums" Source="{Binding PlansAndPlanSums}">
@@ -56,7 +57,8 @@
         Margin="10"
         >
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"    />  <!-- Patient and plan list boxes-->
+            <RowDefinition Height="2*"   />  <!-- Patient and plan list boxes-->
+            <RowDefinition Height="1*"   />  <!-- Recent choices -->
             <RowDefinition Height="Auto" />  <!-- Run and exit buttons -->
         </Grid.RowDefinitions>
 
@@ -174,9 +176,75 @@
             </DockPanel>
         </UniformGrid>
 
+        <!-- Recent choices -->
+        <DockPanel
+            Grid.Row="1"
+            Margin="0,10,0,0"
+            >
+            <TextBlock
+                DockPanel.Dock="Top"
+                Text="Recent choices:"
+                />
+            <DataGrid
+                ItemsSource="{Binding Recents}"
+                SelectedItem="{Binding SelectedRecent, NotifyOnSourceUpdated=True}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                SelectionUnit="FullRow"
+                HeadersVisibility="Column"
+                GridLinesVisibility="None"
+                Background="White"
+                >
+
+                <DataGrid.Columns>
+                    <!-- Patient ID -->
+                    <DataGridTextColumn
+                        Header="Patient ID1"
+                        Binding="{Binding PatientId}"
+                        Width="*"
+                        />
+
+                    <!-- PlanningItems in scope -->
+                    <DataGridTextColumn
+                        Header="PlanningItem(s) in Scope"
+                        Binding="{Binding PlansAndPlanSumsInScope,
+                            Converter={StaticResource PlansAndPlanSumsConverter}}"
+                        Width="2*"
+                        />
+
+                    <!-- Active PlanSetup -->
+                    <DataGridTextColumn
+                        Header="Active PlanSetup"
+                        Binding="{Binding ActivePlan.Id}"
+                        Width="*"
+                        />
+                </DataGrid.Columns>
+
+                <!-- Remove selection box around individual cells -->
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Style>
+                </DataGrid.CellStyle>
+
+                <i:Interaction.Triggers>
+                    <!-- When recent entry is selected, open it -->
+                    <i:EventTrigger EventName="SourceUpdated">
+                        <i:InvokeCommandAction Command="{Binding OpenRecentEntryCommand}" />
+                    </i:EventTrigger>
+
+                    <!-- Double-click to open and run recent patient context -->
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding RunCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+            </DataGrid>
+        </DockPanel>
+
         <!-- Run and exit buttons -->
         <StackPanel
-            Grid.Row="1"
+            Grid.Row="2"
             Orientation="Horizontal"
             HorizontalAlignment="Right"
             Margin="0,10,0,0"

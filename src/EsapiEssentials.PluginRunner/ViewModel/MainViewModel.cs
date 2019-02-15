@@ -13,6 +13,7 @@ namespace EsapiEssentials.PluginRunner
         public MainViewModel(PluginRunner runner)
         {
             _runner = runner;
+            Recents = _runner.GetRecentEntries();
         }
 
         private string _searchText;
@@ -45,8 +46,23 @@ namespace EsapiEssentials.PluginRunner
             set => Set(ref _plansAndPlanSums, value);
         }
 
+        private IList<RecentEntry> _recents;
+        public IList<RecentEntry> Recents
+        {
+            get => _recents;
+            set => Set(ref _recents, value);
+        }
+
+        private RecentEntry _selectedRecent;
+        public RecentEntry SelectedRecent
+        {
+            get => _selectedRecent;
+            set => Set(ref _selectedRecent, value);
+        }
+
         public ICommand SearchPatientCommand => new RelayCommand(SearchPatient);
         public ICommand OpenPatientCommand => new RelayCommand(OpenPatient);
+        public ICommand OpenRecentEntryCommand => new RelayCommand(OpenRecentEntry);
         public ICommand RunCommand => new RelayCommand(Run);
 
         private void SearchPatient()
@@ -71,9 +87,38 @@ namespace EsapiEssentials.PluginRunner
                 CourseId = planOrPlanSum.CourseId
             };
 
+        private void OpenRecentEntry()
+        {
+            SearchText = SelectedRecent?.PatientId;
+            SearchPatient();
+            SelectedPatientMatch = PatientMatches?.FirstOrDefault();
+            OpenPatient();
+            CheckInScopeOrActiveFromRecent();
+        }
+
+        private void CheckInScopeOrActiveFromRecent()
+        {
+            if (PlansAndPlanSums == null) return;
+
+            foreach (var planOrPlanSumVm in PlansAndPlanSums)
+            {
+                if (IsRecentInScope(planOrPlanSumVm))
+                    planOrPlanSumVm.IsInScope = true;
+                if (IsRecentActive(planOrPlanSumVm))
+                    planOrPlanSumVm.IsActive = true;
+            }
+        }
+
+        private bool IsRecentInScope(PlanOrPlanSumViewModel planOrPlanSumVm) =>
+            SelectedRecent?.PlansAndPlanSumsInScope?.Any(p => p.CourseId == planOrPlanSumVm?.CourseId && p.Id == planOrPlanSumVm?.Id) ?? false;
+
+        private bool IsRecentActive(PlanOrPlanSumViewModel planOrPlanSumVm) =>
+            SelectedRecent?.ActivePlan?.CourseId == planOrPlanSumVm?.CourseId && SelectedRecent?.ActivePlan?.Id == planOrPlanSumVm?.Id;
+
         private void Run()
         {
             _runner.RunScript(SelectedPatientMatch?.Id, GetPlansAndPlanSumsInScope(), GetActivePlan());
+            Recents = _runner.GetRecentEntries();
         }
 
         private PlanOrPlanSum[] GetPlansAndPlanSumsInScope() =>
