@@ -17,6 +17,10 @@ namespace EsapiEssentials.Samples.Standalone
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            var args = Environment.GetCommandLineArgs();
+            if (args.Length > 0)
+                MessageBox.Show(string.Join(" ", args));
+
             ProgressBar.IsIndeterminate = true;
 
             StatusTextBlock.Text = "Initializing ESAPI...";

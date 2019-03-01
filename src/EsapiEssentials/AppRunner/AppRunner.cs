@@ -13,8 +13,8 @@ namespace EsapiEssentials
         {
             try
             {
-                var contextArgs = new ScriptContextArgs(context);
-                Process.Start(FirstExeIn(DirectoryOf(Assembly())), contextArgs.Args());
+                var contextArgs = ScriptContextArgs.From(context);
+                Process.Start(FirstExeIn(DirectoryOf(Assembly())), contextArgs.ToArgs());
             }
             catch (Exception e)
             {
