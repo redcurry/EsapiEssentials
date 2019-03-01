@@ -13,7 +13,7 @@ namespace EsapiEssentials
         [Option("course-id")]
         public string CourseId { get; set; }
 
-        [Option("course-id")]
+        [Option("image-id")]
         public string ImageId { get; set; }
 
         [Option("structure-set-id")]
