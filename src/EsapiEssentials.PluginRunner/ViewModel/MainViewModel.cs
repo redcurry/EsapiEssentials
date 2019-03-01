@@ -119,10 +119,16 @@ namespace EsapiEssentials.PluginRunner
         {
             _runner.RunScript(SelectedPatientMatch?.Id, GetPlansAndPlanSumsInScope(), GetActivePlan());
 
-            // Save and re-open selected recent because it's sometimes cleared when Recents is set
+            var recents = Recents;
             var selectedRecent = SelectedRecent;
+
             Recents = _runner.GetRecentEntries().Reverse().ToList();
-            SelectedRecent = selectedRecent;
+
+            // If recents changed, it means a new recent was added, so select it as the recent;
+            // otherwise, select the previously selected recent
+            SelectedRecent = recents.Count != Recents.Count
+                ? Recents.FirstOrDefault()
+                : selectedRecent;
             OpenRecentEntry();
         }
 
