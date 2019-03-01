@@ -13,7 +13,7 @@ namespace EsapiEssentials.PluginRunner
         public MainViewModel(PluginRunner runner)
         {
             _runner = runner;
-            Recents = _runner.GetRecentEntries();
+            Recents = _runner.GetRecentEntries().Reverse().ToList();
         }
 
         private string _searchText;
@@ -121,7 +121,7 @@ namespace EsapiEssentials.PluginRunner
 
             // Save and re-open selected recent because it's sometimes cleared when Recents is set
             var selectedRecent = SelectedRecent;
-            Recents = _runner.GetRecentEntries();
+            Recents = _runner.GetRecentEntries().Reverse().ToList();
             SelectedRecent = selectedRecent;
             OpenRecentEntry();
         }
