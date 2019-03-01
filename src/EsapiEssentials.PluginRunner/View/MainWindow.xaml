@@ -183,7 +183,7 @@
             >
             <TextBlock
                 DockPanel.Dock="Top"
-                Text="Recent choices:"
+                Text="Recent choices (click to open, double-click to run):"
                 />
             <DataGrid
                 ItemsSource="{Binding Recents}"
