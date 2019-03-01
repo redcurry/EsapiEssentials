@@ -114,14 +114,19 @@ namespace EsapiEssentials.PluginRunner
         private void SaveRecent(string patientId, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)
         {
             var data = _dataRepository.Load();
+
             var recent = new RecentEntry
             {
                 PatientId = patientId,
                 PlansAndPlanSumsInScope = plansAndPlanSumsInScope?.ToList(),
                 ActivePlan = activePlan
             };
-            data.Recents.Add(recent);
-            _dataRepository.Save(data);
+
+            if (!data.Recents.Contains(recent))
+            {
+                data.Recents.Add(recent);
+                _dataRepository.Save(data);
+            }
         }
 
         private PluginScriptContext CreateScriptContext(Patient patient, IEnumerable<PlanOrPlanSum> plansAndPlanSumsInScope, PlanOrPlanSum activePlan)

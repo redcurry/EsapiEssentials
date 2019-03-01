@@ -118,7 +118,12 @@ namespace EsapiEssentials.PluginRunner
         private void Run()
         {
             _runner.RunScript(SelectedPatientMatch?.Id, GetPlansAndPlanSumsInScope(), GetActivePlan());
+
+            // Save and re-open selected recent because it's sometimes cleared when Recents is set
+            var selectedRecent = SelectedRecent;
             Recents = _runner.GetRecentEntries();
+            SelectedRecent = selectedRecent;
+            OpenRecentEntry();
         }
 
         private PlanOrPlanSum[] GetPlansAndPlanSumsInScope() =>
