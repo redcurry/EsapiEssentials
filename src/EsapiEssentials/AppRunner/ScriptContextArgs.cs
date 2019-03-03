@@ -13,6 +13,10 @@ namespace EsapiEssentials
         [Option("course-id")]
         public string CourseId { get; set; }
 
+        // Used to find the exact image
+        [Option("series-uid")]
+        public string SeriesUid { get; set; }
+
         [Option("image-id")]
         public string ImageId { get; set; }
 
@@ -31,14 +35,18 @@ namespace EsapiEssentials
         [Option("brachy-plan-id")]
         public string BrachyPlanSetupId { get; set; }
 
-        [Option("plans-in-scope-ids")]
-        public IEnumerable<string> PlansInScopeIds { get; set; }
+        [Option("plans-in-scope-uids")]
+        public IEnumerable<string> PlansInScopeUids { get; set; }
 
-        [Option("external-plans-in-scope-ids")]
-        public IEnumerable<string> ExternalPlansInScopeIds { get; set; }
+        [Option("external-plans-in-scope-uids")]
+        public IEnumerable<string> ExternalPlansInScopeUids { get; set; }
 
-        [Option("brachy-plans-in-scope-ids")]
-        public IEnumerable<string> BrachyPlansInScopeIds { get; set; }
+        [Option("brachy-plans-in-scope-uids")]
+        public IEnumerable<string> BrachyPlansInScopeUids { get; set; }
+
+        // Used to find the exact plan sums
+        [Option("plan-sums-in-scope-course-ids")]
+        public IEnumerable<string> PlanSumsInScopeCourseIds { get; set; }
 
         [Option("plan-sums-in-scope-ids")]
         public IEnumerable<string> PlanSumsInScopeIds { get; set; }
@@ -55,15 +63,17 @@ namespace EsapiEssentials
             {
                 CurrentUserId = context.CurrentUser?.Id,
                 CourseId = context.Course?.Id,
+                SeriesUid = context.Image?.Series?.UID,
                 ImageId = context.Image?.Id,
                 StructureSetId = context.StructureSet?.Id,
                 PatientId = context.Patient?.Id,
                 PlanSetupId = context.PlanSetup?.Id,
                 ExternalPlanSetupId = context.ExternalPlanSetup?.Id,
                 BrachyPlanSetupId = context.BrachyPlanSetup?.Id,
-                PlansInScopeIds = context.PlansInScope?.Select(x => x.Id),
-                ExternalPlansInScopeIds = context.ExternalPlansInScope?.Select(x => x.Id),
-                BrachyPlansInScopeIds = context.BrachyPlansInScope?.Select(x => x.Id),
+                PlansInScopeUids = context.PlansInScope?.Select(x => x.UID),
+                ExternalPlansInScopeUids = context.ExternalPlansInScope?.Select(x => x.UID),
+                BrachyPlansInScopeUids = context.BrachyPlansInScope?.Select(x => x.UID),
+                PlanSumsInScopeCourseIds = context.PlanSumsInScope?.Select(x => x.Course?.Id),
                 PlanSumsInScopeIds = context.PlanSumsInScope?.Select(x => x.Id),
                 ApplicationName = context.ApplicationName,
                 VersionInfo = context.VersionInfo
