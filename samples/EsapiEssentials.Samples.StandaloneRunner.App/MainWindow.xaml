@@ -1,0 +1,14 @@
+﻿<Window
+    x:Class="EsapiEssentials.Samples.StandaloneRunner.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Standalone Runner App"
+    Closing="MainWindow_OnClosing"
+    >
+    <StackPanel>
+        <TextBlock x:Name="PatientTextBlock" />
+        <TextBlock x:Name="CourseTextBlock" />
+        <TextBlock x:Name="PlanTextBlock" />
+        <TextBlock x:Name="PlanSumsInScopeTextBlock" />
+    </StackPanel>
+</Window>

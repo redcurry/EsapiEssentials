@@ -39,5 +39,11 @@ namespace EsapiEssentials
         public IEnumerable<PlanSum> PlanSumsInScope { get; set; }
         public string ApplicationName { get; set; }
         public string VersionInfo { get; set; }
+
+        public static PluginScriptContext From(string[] args, Application app)
+        {
+            var scriptContextArgs = ScriptContextArgs.From(args);
+            return scriptContextArgs?.ToScriptContext(app);
+        }
     }
 }
