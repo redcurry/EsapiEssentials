@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EsapiEssentials.Internal;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
     public class PatientSummarySearch
     {

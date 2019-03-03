@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EsapiEssentials.Internal
+namespace EsapiEssentials.Standalone
 {
     internal class SearchPatient
     {

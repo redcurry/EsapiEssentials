@@ -1,4 +1,5 @@
 ﻿using EsapiEssentials;
+using EsapiEssentials.Standalone;
 using VMS.TPS.Common.Model.API;
 
 namespace VMS.TPS
@@ -7,7 +8,7 @@ namespace VMS.TPS
     {
         public void Execute(ScriptContext context)
         {
-            AppRunner.RunWith(context);
+            StandaloneRunner.RunWith(context);
         }
     }
 }

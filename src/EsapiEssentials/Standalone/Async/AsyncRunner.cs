@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Schedulers;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
     internal class AsyncRunner : IDisposable
     {

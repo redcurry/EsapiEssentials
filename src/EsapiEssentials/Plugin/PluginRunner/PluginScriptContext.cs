@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using EsapiEssentials.Standalone;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Plugin
 {
     public class PluginScriptContext
     {

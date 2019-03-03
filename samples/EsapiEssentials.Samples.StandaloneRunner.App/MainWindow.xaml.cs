@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using EsapiEssentials.Plugin;
 using Application = VMS.TPS.Common.Model.API.Application;
 
 namespace EsapiEssentials.Samples.StandaloneRunner.App

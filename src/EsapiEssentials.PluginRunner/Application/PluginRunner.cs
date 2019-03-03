@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using EsapiEssentials.Plugin;
+using EsapiEssentials.Standalone;
 using VMS.TPS.Common.Model.API;
 using Application = VMS.TPS.Common.Model.API.Application;
 

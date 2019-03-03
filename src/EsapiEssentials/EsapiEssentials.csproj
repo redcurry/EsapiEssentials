@@ -56,27 +56,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppRunner\AppRunner.cs" />
-    <Compile Include="AppRunner\AppRunnerException.cs" />
-    <Compile Include="AppRunner\ScriptContextArgs.cs" />
-    <Compile Include="Async\AsyncRunner.cs" />
-    <Compile Include="Async\EsapiServiceBase.cs" />
-    <Compile Include="Async\LogInRequiredException.cs" />
-    <Compile Include="Async\PatientNotOpenedException.cs" />
+    <Compile Include="Standalone\StandaloneRunner\StandaloneRunner.cs" />
+    <Compile Include="Standalone\StandaloneRunner\StandaloneRunnerException.cs" />
+    <Compile Include="Standalone\StandaloneRunner\ScriptContextArgs.cs" />
+    <Compile Include="Standalone\Async\AsyncRunner.cs" />
+    <Compile Include="Standalone\Async\EsapiServiceBase.cs" />
+    <Compile Include="Standalone\Async\LogInRequiredException.cs" />
+    <Compile Include="Standalone\Async\PatientNotOpenedException.cs" />
     <Compile Include="Extensions\PatientExtensions.cs" />
     <Compile Include="Extensions\PlanningItemExtensions.cs" />
     <Compile Include="Extensions\StructureExtensions.cs" />
-    <Compile Include="PatientSearch\Internal\PatientSearch.cs" />
-    <Compile Include="PatientSearch\Internal\SearchPatient.cs" />
-    <Compile Include="PatientSearch\PatientSummarySearch.cs" />
-    <Compile Include="Plugin\ScriptBaseWithoutWindow.cs" />
-    <Compile Include="Plugin\ScriptBase.cs" />
-    <Compile Include="Plugin\PluginScriptContext.cs" />
+    <Compile Include="Standalone\PatientSearch\PatientSearch.cs" />
+    <Compile Include="Standalone\PatientSearch\SearchPatient.cs" />
+    <Compile Include="Standalone\PatientSearch\PatientSummarySearch.cs" />
+    <Compile Include="Plugin\PluginRunner\ScriptBaseWithoutWindow.cs" />
+    <Compile Include="Plugin\PluginRunner\ScriptBase.cs" />
+    <Compile Include="Plugin\PluginRunner\PluginScriptContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\AssemblySettings.cs" />
+    <Compile Include="Plugin\Settings\AssemblySettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

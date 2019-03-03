@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EsapiEssentials.Internal
+namespace EsapiEssentials.Standalone
 {
     internal class PatientSearch
     {

@@ -1,4 +1,6 @@
-﻿namespace EsapiEssentials.PluginRunner
+﻿using EsapiEssentials.Plugin;
+
+namespace EsapiEssentials.PluginRunner
 {
     public static class ScriptRunner
     {

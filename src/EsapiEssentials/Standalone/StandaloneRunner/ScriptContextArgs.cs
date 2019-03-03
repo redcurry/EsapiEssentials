@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
+using EsapiEssentials.Plugin;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
     internal class ScriptContextArgs
     {

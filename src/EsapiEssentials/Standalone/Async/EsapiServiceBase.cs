@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
     public abstract class EsapiServiceBase : IDisposable
     {

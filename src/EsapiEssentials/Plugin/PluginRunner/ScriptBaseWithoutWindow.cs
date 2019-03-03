@@ -1,6 +1,6 @@
 ﻿using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Plugin
 {
     public abstract class ScriptBaseWithoutWindow
     {

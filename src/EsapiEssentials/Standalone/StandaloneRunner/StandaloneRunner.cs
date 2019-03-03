@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection;
 using VMS.TPS.Common.Model.API;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
-    public class AppRunner
+    public class StandaloneRunner
     {
         public static void RunWith(ScriptContext context)
         {
@@ -18,7 +18,7 @@ namespace EsapiEssentials
             }
             catch (Exception e)
             {
-                throw new AppRunnerException("Unable to launch application.", e);
+                throw new StandaloneRunnerException("Unable to launch application.", e);
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using EsapiEssentials.Internal;
+using EsapiEssentials.Standalone;
 using NUnit.Framework;
 
 namespace EsapiEssentials.UnitTests

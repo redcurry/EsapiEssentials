@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using EsapiEssentials.Standalone;
 using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Samples.EsapiService

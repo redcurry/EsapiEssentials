@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Reflection;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Plugin
 {
     /// <summary>
     /// Provides read-only access to an assembly's settings.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EsapiEssentials
+namespace EsapiEssentials.Standalone
 {
     public class LogInRequiredException : Exception
     {
