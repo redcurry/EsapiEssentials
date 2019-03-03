@@ -4,6 +4,10 @@ using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Standalone
 {
+    /// <summary>
+    /// Duplicates all the properties from ESAPI ScriptContext class,
+    /// so that they can be accessed from a standalone application.
+    /// </summary>
     public class StandaloneScriptContext
     {
         public User CurrentUser { get; set; }
@@ -21,6 +25,13 @@ namespace EsapiEssentials.Standalone
         public string ApplicationName { get; set; }
         public string VersionInfo { get; set; }
 
+        /// <summary>
+        /// Creates a new instance of StandaloneScriptContext, initialized
+        /// using the given command-line arguments and Application object.
+        /// </summary>
+        /// <param name="args">The command-line arguments containing the script context.</param>
+        /// <param name="app">The initialized ESAPI Application object.</param>
+        /// <returns>A new instance of the StandaloneScriptContext.</returns>
         public static StandaloneScriptContext From(string[] args, Application app)
         {
             var scriptContext = new StandaloneScriptContext();
