@@ -3,6 +3,10 @@ using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Plugin
 {
+    /// <summary>
+    /// Duplicates all the properties from the ESAPI ScriptContext class,
+    /// so that they can be accessed from a plugin script using the PluginScriptRunner.
+    /// </summary>
     public class PluginScriptContext
     {
         public PluginScriptContext() { }
