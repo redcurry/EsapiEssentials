@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CommandLine;
-using EsapiEssentials.Plugin;
 using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Standalone
@@ -93,77 +92,5 @@ namespace EsapiEssentials.Standalone
         {
             return Parser.Default.FormatCommandLine(this);
         }
-
-        public PluginScriptContext ToScriptContext(Application app)
-        {
-            var scriptContext = new PluginScriptContext();
-
-            scriptContext.CurrentUser = app.CurrentUser;
-            // Note: It's possible that the user from the command-line arguments
-            // and the user that signed in to the standalone app are different,
-            // but the best we can do is return the standalone app user
-
-            scriptContext.ApplicationName = ApplicationName;
-            scriptContext.VersionInfo = VersionInfo;
-
-            // If there's no patient, there's nothing else to open
-            if (PatientId == null)
-                return scriptContext;
-
-            var patient = GetPatient(app);
-
-            scriptContext.Patient = patient;
-            scriptContext.Course = GetCourse(patient);
-            scriptContext.Image = GetImage(patient);
-            scriptContext.StructureSet = GetStructureSet(patient);
-            scriptContext.PlanSetup = GetPlanSetup(patient);
-            scriptContext.ExternalPlanSetup = GetExternalPlanSetup(patient);
-            scriptContext.BrachyPlanSetup = GetBrachyPlanSetup(patient);
-            scriptContext.PlansInScope = GetPlansInScope(patient);
-            scriptContext.ExternalPlansInScope = GetExternalPlansInScope(patient);
-            scriptContext.BrachyPlansInScope = GetBrachyPlansInScope(patient);
-            scriptContext.PlanSumsInScope = GetPlanSumsInScope(patient);
-
-            return scriptContext;
-        }
-
-        private Patient GetPatient(Application app) =>
-            app.OpenPatientById(PatientId);
-
-        private StructureSet GetStructureSet(Patient patient) =>
-            patient?.StructureSets?.FirstOrDefault(x => x.Id == StructureSetId);
-
-        private Series GetSeries(Patient patient) =>
-            patient?.Studies?.SelectMany(x => x.Series).FirstOrDefault(x => x.UID == SeriesUid);
-
-        private Image GetImage(Patient patient) =>
-            GetSeries(patient)?.Images?.FirstOrDefault(x => x.Id == ImageId);
-
-        private Course GetCourse(Patient patient) =>
-            patient?.Courses?.FirstOrDefault(x => x.Id == CourseId);
-
-        private PlanSetup GetPlanSetup(Patient patient) =>
-            GetCourse(patient)?.PlanSetups?.FirstOrDefault(x => x.Id == PlanSetupId);
-
-        private ExternalPlanSetup GetExternalPlanSetup(Patient patient) =>
-            GetPlanSetup(patient) as ExternalPlanSetup;
-
-        private BrachyPlanSetup GetBrachyPlanSetup(Patient patient) =>
-            GetPlanSetup(patient) as BrachyPlanSetup;
-
-        private IEnumerable<PlanSetup> GetPlansInScope(Patient patient) =>
-            patient?.Courses?.SelectMany(x => x.PlanSetups).Where(x => PlansInScopeUids.Contains(x.UID));
-
-        private IEnumerable<ExternalPlanSetup> GetExternalPlansInScope(Patient patient) =>
-            GetPlansInScope(patient).Where(x => x is ExternalPlanSetup).Cast<ExternalPlanSetup>();
-
-        private IEnumerable<BrachyPlanSetup> GetBrachyPlansInScope(Patient patient) =>
-            GetPlansInScope(patient).Where(x => x is BrachyPlanSetup).Cast<BrachyPlanSetup>();
-
-        private IEnumerable<PlanSum> GetPlanSumsInScope(Patient patient) =>
-            PlanSumsInScopeCourseIds.Zip(PlanSumsInScopeIds, (courseId, planSumId) => GetPlanSum(patient, courseId, planSumId));
-
-        private PlanSum GetPlanSum(Patient patient, string courseId, string planSumId) =>
-            patient?.Courses?.FirstOrDefault(x => x.Id == courseId)?.PlanSums?.FirstOrDefault(x => x.Id == planSumId);
     }
 }

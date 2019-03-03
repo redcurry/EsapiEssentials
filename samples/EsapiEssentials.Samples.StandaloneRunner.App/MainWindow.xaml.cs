@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
-using EsapiEssentials.Plugin;
+using EsapiEssentials.Standalone;
 using Application = VMS.TPS.Common.Model.API.Application;
 
 namespace EsapiEssentials.Samples.StandaloneRunner.App
@@ -10,7 +10,7 @@ namespace EsapiEssentials.Samples.StandaloneRunner.App
     public partial class MainWindow : Window
     {
         private Application _app;
-        private PluginScriptContext _scriptContext;
+        private StandaloneScriptContext _scriptContext;
 
         public MainWindow()
         {
@@ -26,7 +26,7 @@ namespace EsapiEssentials.Samples.StandaloneRunner.App
 
             // The PluginScriptContext requires the command-line arguments and the Application object
             // (if there are no command-line arguments, the return is null)
-            _scriptContext = PluginScriptContext.From(Environment.GetCommandLineArgs(), _app);
+            _scriptContext = StandaloneScriptContext.From(Environment.GetCommandLineArgs(), _app);
         }
 
         private void InitializeControls()
