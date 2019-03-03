@@ -14,13 +14,16 @@ namespace EsapiEssentials.Standalone
             try
             {
                 var contextArgs = ScriptContextArgs.From(context);
-                Process.Start(FirstExeIn(DirectoryOf(Assembly())), contextArgs.ToArgs());
+                Process.Start(GetStandalonePath(), contextArgs.ToArgs());
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw new StandaloneRunnerException("Unable to launch application.", e);
+                throw new StandaloneRunnerException("Unable to launch the application.");
             }
         }
+
+        private static string GetStandalonePath() =>
+            FirstExeIn(DirectoryOf(Assembly()));
 
         private static string FirstExeIn(string dir) =>
             Directory.GetFiles(dir, "*.exe").First();
