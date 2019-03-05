@@ -70,8 +70,8 @@
     <Compile Include="Standalone\PatientSearch\PatientSearch.cs" />
     <Compile Include="Standalone\PatientSearch\SearchPatient.cs" />
     <Compile Include="Standalone\PatientSearch\PatientSummarySearch.cs" />
-    <Compile Include="Plugin\PluginRunner\ScriptBaseWithoutWindow.cs" />
     <Compile Include="Plugin\PluginRunner\ScriptBase.cs" />
+    <Compile Include="Plugin\PluginRunner\ScriptBaseWithWindow.cs" />
     <Compile Include="Plugin\PluginRunner\PluginScriptContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Plugin\Settings\AssemblySettings.cs" />

@@ -19,7 +19,7 @@ namespace EsapiEssentials.PluginRunner
         private const int MaxSearchResults = 20;
 
         private readonly ScriptBase _script;
-        private readonly ScriptBaseWithoutWindow _scriptWithoutWindow;
+        private readonly ScriptBaseWithWindow _scriptWithWindow;
 
         private Application _esapiApp;
         private PatientSummarySearch _search;
@@ -31,9 +31,9 @@ namespace EsapiEssentials.PluginRunner
             Initialize(userId, password);
         }
 
-        public PluginRunner(ScriptBaseWithoutWindow scriptWithoutWindow, string userId, string password)
+        public PluginRunner(ScriptBaseWithWindow script, string userId, string password)
         {
-            _scriptWithoutWindow = scriptWithoutWindow;
+            _scriptWithWindow = script;
             Initialize(userId, password);
         }
 
@@ -79,15 +79,15 @@ namespace EsapiEssentials.PluginRunner
                 var patient = _esapiApp.OpenPatientById(patientId);
                 var context = CreateScriptContext(patient, plansAndPlanSumsInScope, activePlan);
 
-                if (_script != null)
+                if (_scriptWithWindow != null)
                 {
                     var window = new Window();
-                    _script.Execute(context, window);
+                    _scriptWithWindow.Execute(context, window);
                     window.ShowDialog();
                 }
-                else if (_scriptWithoutWindow != null)
+                else if (_script != null)
                 {
-                    _scriptWithoutWindow.Execute(context);
+                    _script.Execute(context);
                 }
             }
             catch (Exception e)
