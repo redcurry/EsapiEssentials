@@ -23,6 +23,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.Sta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.StandaloneRunner.Script", "samples\EsapiEssentials.Samples.StandaloneRunner.Script\EsapiEssentials.Samples.StandaloneRunner.Script.csproj", "{B6BD150A-2A22-4D28-9152-D6E02E97B218}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginRunner", "PluginRunner", "{BA5E90B7-99B0-4C4A-A851-ACCD0CA68390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.PluginScript", "samples\EsapiEssentials.Samples.PluginScript\EsapiEssentials.Samples.PluginScript.csproj", "{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsapiEssentials.Samples.PluginScript.Runner", "samples\EsapiEssentials.Samples.PluginScript.Runner\EsapiEssentials.Samples.PluginScript.Runner.csproj", "{CC28EBAC-C301-4CC1-91D0-EF99533C5F08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -57,6 +63,14 @@ Global
 		{B6BD150A-2A22-4D28-9152-D6E02E97B218}.Debug|x64.Build.0 = Debug|x64
 		{B6BD150A-2A22-4D28-9152-D6E02E97B218}.Release|x64.ActiveCfg = Release|x64
 		{B6BD150A-2A22-4D28-9152-D6E02E97B218}.Release|x64.Build.0 = Release|x64
+		{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125}.Debug|x64.ActiveCfg = Debug|x64
+		{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125}.Debug|x64.Build.0 = Debug|x64
+		{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125}.Release|x64.ActiveCfg = Release|x64
+		{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125}.Release|x64.Build.0 = Release|x64
+		{CC28EBAC-C301-4CC1-91D0-EF99533C5F08}.Debug|x64.ActiveCfg = Debug|x64
+		{CC28EBAC-C301-4CC1-91D0-EF99533C5F08}.Debug|x64.Build.0 = Debug|x64
+		{CC28EBAC-C301-4CC1-91D0-EF99533C5F08}.Release|x64.ActiveCfg = Release|x64
+		{CC28EBAC-C301-4CC1-91D0-EF99533C5F08}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +82,9 @@ Global
 		{213E327F-06CE-4578-B238-239F033A2F43} = {6210D496-EDFA-4E63-B07C-8F5220613629}
 		{407BAEEF-029F-4F27-89F0-12B8EAAC790C} = {213E327F-06CE-4578-B238-239F033A2F43}
 		{B6BD150A-2A22-4D28-9152-D6E02E97B218} = {213E327F-06CE-4578-B238-239F033A2F43}
+		{BA5E90B7-99B0-4C4A-A851-ACCD0CA68390} = {6210D496-EDFA-4E63-B07C-8F5220613629}
+		{FEB1E304-CCC9-4B61-ACD2-FE76DE6E1125} = {BA5E90B7-99B0-4C4A-A851-ACCD0CA68390}
+		{CC28EBAC-C301-4CC1-91D0-EF99533C5F08} = {BA5E90B7-99B0-4C4A-A851-ACCD0CA68390}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09FB4B73-C18F-4F17-AA85-574F5938F47D}

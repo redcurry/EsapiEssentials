@@ -1,0 +1,6 @@
+﻿<Application
+    x:Class="EsapiEssentials.Samples.PluginScript.Runner.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Startup="App_OnStartup"
+    />
