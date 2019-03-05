@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EsapiEssentials.Samples.StandaloneRunner.Script")]
+[assembly: AssemblyTitle("EsapiEssentials.Samples.StandaloneApp.Runner")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michigan Medicine Radiation Oncology")]
-[assembly: AssemblyProduct("EsapiEssentials.Samples.StandaloneRunner.Script")]
+[assembly: AssemblyProduct("EsapiEssentials.Samples.StandaloneApp.Runner")]
 [assembly: AssemblyCopyright("Copyright © Michigan Medicine Radiation Oncology 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

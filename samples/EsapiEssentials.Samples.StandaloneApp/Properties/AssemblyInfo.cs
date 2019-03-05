@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EsapiEssentials.Samples.StandaloneRunner.App")]
+[assembly: AssemblyTitle("EsapiEssentials.Samples.StandaloneApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michigan Medicine Radiation Oncology")]
-[assembly: AssemblyProduct("EsapiEssentials.Samples.StandaloneRunner.App")]
+[assembly: AssemblyProduct("EsapiEssentials.Samples.StandaloneApp")]
 [assembly: AssemblyCopyright("Copyright © Michigan Medicine Radiation Oncology 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

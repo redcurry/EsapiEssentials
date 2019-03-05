@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{407BAEEF-029F-4F27-89F0-12B8EAAC790C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EsapiEssentials.Samples.StandaloneRunner.App</RootNamespace>
-    <AssemblyName>EsapiEssentials.Samples.StandaloneRunner.App</AssemblyName>
+    <RootNamespace>EsapiEssentials.Samples.StandaloneApp</RootNamespace>
+    <AssemblyName>EsapiEssentials.Samples.StandaloneApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -105,9 +105,9 @@
       <Project>{fdc15e5d-0179-42cf-b352-48b74b234454}</Project>
       <Name>EsapiEssentials</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiEssentials.Samples.StandaloneRunner.Script\EsapiEssentials.Samples.StandaloneRunner.Script.csproj">
+    <ProjectReference Include="..\EsapiEssentials.Samples.StandaloneApp.Runner\EsapiEssentials.Samples.StandaloneApp.Runner.csproj">
       <Project>{b6bd150a-2a22-4d28-9152-d6e02e97b218}</Project>
-      <Name>EsapiEssentials.Samples.StandaloneRunner.Script</Name>
+      <Name>EsapiEssentials.Samples.StandaloneApp.Runner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

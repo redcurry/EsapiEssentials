@@ -7,8 +7,8 @@
     <ProjectGuid>{B6BD150A-2A22-4D28-9152-D6E02E97B218}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EsapiEssentials.Samples.StandaloneRunner.Script</RootNamespace>
-    <AssemblyName>EsapiEssentials.Samples.StandaloneRunner.Script.esapi</AssemblyName>
+    <RootNamespace>EsapiEssentials.Samples.StandaloneApp.Runner</RootNamespace>
+    <AssemblyName>EsapiEssentials.Samples.StandaloneApp.Runner.esapi</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
