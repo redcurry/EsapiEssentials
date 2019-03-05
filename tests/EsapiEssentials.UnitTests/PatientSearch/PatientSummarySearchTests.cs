@@ -34,6 +34,7 @@ namespace EsapiEssentials.UnitTests
         [TestCase("robert", new string[0])]
         [TestCase("ngu lam", new[] {"004"})]
         [TestCase("ngu  lam", new[] {"004"})]
+        [TestCase("dawson,c", new[] {"008"})]
         public void SearchTest(string searchText, string[] resultIds)
         {
             var search = new PatientSearch(_patients, 10);

@@ -41,7 +41,7 @@ namespace EsapiEssentials.Standalone
         }
 
         private string[] GetSearchTerms(string searchText) =>
-            searchText.Split().Select(term => term.Trim(',', ';')).ToArray();
+            searchText.Split(' ', ',').ToArray();
 
         private bool IsMatchWithOneSearchTerm(SearchPatient patient, string term) =>
             IsSubstring(term, patient.Id) ||
