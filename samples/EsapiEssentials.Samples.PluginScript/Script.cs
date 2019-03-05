@@ -7,6 +7,13 @@ using VMS.TPS.Common.Model.Types;
 
 namespace VMS.TPS
 {
+    // This script demonstrates deriving from ScriptBase in order to use the PluginRunner,
+    // which needs to be referenced from a separate WPF project.
+
+    // This script also demonstrates using AssemblySettings in order to obtain
+    // the desired structure ID from the App.config file.
+    // This file is not automatically created in a class library project,
+    // so it must be added manually to the project (via Add New Item).
     public class Script : ScriptBase
     {
         public override void Execute(PluginScriptContext context)
