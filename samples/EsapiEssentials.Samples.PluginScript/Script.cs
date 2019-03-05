@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using EsapiEssentials.Plugin;
 using VMS.TPS.Common.Model.Types;
@@ -11,7 +12,7 @@ namespace VMS.TPS
         public override void Execute(PluginScriptContext context)
         {
             // Define the desired structure ID
-            var structureId = "Bladder";
+            var structureId = GetStructureIdFromSettings();
 
             // Find the structure in the current structure set
             var structure = context?.StructureSet?.Structures?.FirstOrDefault(x => x.Id == structureId);
@@ -27,6 +28,12 @@ namespace VMS.TPS
 
             // Show the result
             MessageBox.Show($"{structureId} D2cc[Gy] = {d2cc}");
+        }
+
+        private string GetStructureIdFromSettings()
+        {
+            var settings = new AssemblySettings(Assembly.GetExecutingAssembly());
+            return settings.GetSetting("StructureId");
         }
     }
 }
