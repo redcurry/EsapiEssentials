@@ -104,10 +104,6 @@
       <Project>{A53DF156-A49B-4A38-AF1F-C4B806DE5495}</Project>
       <Name>EsapiEssentials.Samples.EsapiService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EsapiEssentials.Samples.Standalone.Runner\EsapiEssentials.Samples.Standalone.Runner.csproj">
-      <Project>{dfd5d230-6584-4bec-a03b-c243900f1441}</Project>
-      <Name>EsapiEssentials.Samples.Standalone.Runner</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
