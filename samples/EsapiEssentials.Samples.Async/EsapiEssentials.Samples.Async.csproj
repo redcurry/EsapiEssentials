@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{34D1533F-B661-4ACB-803D-E1E7FCD6476E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EsapiEssentials.Samples.Standalone</RootNamespace>
-    <AssemblyName>EsapiEssentials.Samples.Standalone</AssemblyName>
+    <RootNamespace>EsapiEssentials.Samples.Async</RootNamespace>
+    <AssemblyName>EsapiEssentials.Samples.Async</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -46,6 +46,14 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="VMS.TPS.Common.Model.API, Version=13.6.32.20182, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182\VMS.TPS.Common.Model.API.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.Types, Version=13.6.32.20182, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182\VMS.TPS.Common.Model.Types.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -61,6 +69,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoseMetricCalculator.cs" />
+    <Compile Include="EsapiService.cs" />
+    <Compile Include="IEsapiService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -99,10 +110,6 @@
     <ProjectReference Include="..\..\src\EsapiEssentials\EsapiEssentials.csproj">
       <Project>{FDC15E5D-0179-42CF-B352-48B74B234454}</Project>
       <Name>EsapiEssentials</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EsapiEssentials.Samples.EsapiService\EsapiEssentials.Samples.EsapiService.csproj">
-      <Project>{A53DF156-A49B-4A38-AF1F-C4B806DE5495}</Project>
-      <Name>EsapiEssentials.Samples.EsapiService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

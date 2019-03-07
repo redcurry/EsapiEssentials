@@ -2,17 +2,17 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace EsapiEssentials.Samples.Standalone
+namespace EsapiEssentials.Samples.Async
 {
     public partial class MainWindow : Window
     {
-        private readonly EsapiService.EsapiService _esapiService;
+        private readonly EsapiService _esapiService;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _esapiService = new EsapiService.EsapiService();
+            _esapiService = new EsapiService();
         }
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)

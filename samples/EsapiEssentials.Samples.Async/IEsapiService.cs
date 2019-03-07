@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace EsapiEssentials.Samples.EsapiService
+namespace EsapiEssentials.Samples.Async
 {
     public interface IEsapiService
     {

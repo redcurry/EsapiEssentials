@@ -2,7 +2,7 @@
 using VMS.TPS.Common.Model.API;
 using VMS.TPS.Common.Model.Types;
 
-namespace EsapiEssentials.Samples.EsapiService
+namespace EsapiEssentials.Samples.Async
 {
     public class DoseMetricCalculator
     {
