@@ -4,30 +4,24 @@ using VMS.TPS.Common.Model.Types;
 
 namespace EsapiEssentials.Samples.Async
 {
+    // This class works directly with ESAPI objects, but it will be wrapped by EsapiService,
+    // which doesn't expose ESAPI objects in order to isolate the app from ESAPI
     public class DoseMetricCalculator
     {
-        public double Calculate(string metric, PlanningItem planningItem, Structure structure)
+        public double CalculateMean(PlanningItem planningItem, Structure structure)
         {
-            Validate(planningItem);
-            Validate(structure);
-
-            var dvhResult = planningItem.GetDVHCumulativeData(
-                structure, DoseValuePresentation.Absolute, VolumePresentation.AbsoluteCm3, 0.001);
-
-            // Return the mean dose for now
-            return dvhResult?.MeanDose.Dose ?? double.NaN;
-        }
-
-        private void Validate(PlanningItem planningItem)
-        {
-            if (planningItem == null)
-                throw new ArgumentNullException(nameof(planningItem));
-        }
-
-        private void Validate(Structure structure)
-        {
-            if (structure == null)
-                throw new ArgumentNullException(nameof(structure));
+            try
+            {
+                var dvhResult = planningItem.GetDVHCumulativeData(
+                    structure, DoseValuePresentation.Absolute, VolumePresentation.AbsoluteCm3, 0.001);
+                return dvhResult.MeanDose.Dose;
+            }
+            catch (Exception e)
+            {
+                // There are many reasons the DVH calculation could fail,
+                // so wrap any exception in a general exception
+                throw new InvalidOperationException("Unable to calculate the mean dose.", e);
+            }
         }
    }
 }

@@ -17,10 +17,6 @@ namespace EsapiEssentials.Samples.Async
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var args = Environment.GetCommandLineArgs();
-            if (args.Length > 0)
-                MessageBox.Show(string.Join(" ", args));
-
             ProgressBar.IsIndeterminate = true;
 
             StatusTextBlock.Text = "Initializing ESAPI...";
@@ -35,7 +31,7 @@ namespace EsapiEssentials.Samples.Async
             ListBox.ItemsSource = courseIds;
 
             StatusTextBlock.Text = "Calculating metric...";
-            var metric = await _esapiService.CalculateMetricAsync(null, "HEADNECK", "HN IMRT ECL", "CORD");
+            var metric = await _esapiService.CalculateMeanDoseAsync("HEADNECK", "HN IMRT ECL", "CORD");
 
             TextBlock.Text = metric.ToString("F2");
 
