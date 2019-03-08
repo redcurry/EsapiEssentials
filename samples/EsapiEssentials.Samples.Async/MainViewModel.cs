@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -66,9 +65,9 @@ namespace EsapiEssentials.Samples.Async
 
         private async void Start()
         {
-            _dialogService.ShowLogInWaitDialog();
+            _dialogService.ShowProgressDialog("Logging in to Eclipse. Please wait.");
             await _esapiService.LogInAsync();
-            _dialogService.CloseLogInWaitDialog();
+            _dialogService.CloseProgressDialog();
         }
 
         private async void SearchPatient()
@@ -96,6 +95,8 @@ namespace EsapiEssentials.Samples.Async
 
             var structureIds = await _esapiService.GetStructureIdsAsync(courseId, planId);
 
+            _dialogService.ShowProgressDialog("Calculating dose metrics", structureIds.Length);
+
             MetricResults = new ObservableCollection<MetricResult>();
             foreach (var structureId in structureIds)
             {
@@ -115,7 +116,11 @@ namespace EsapiEssentials.Samples.Async
                     StructureId = structureId,
                     Result = result
                 });
+
+                _dialogService.IncrementProgress();
             }
+
+            _dialogService.CloseProgressDialog();
         }
     }
 }

@@ -2,7 +2,8 @@
 {
     public interface IDialogService
     {
-        void ShowLogInWaitDialog();
-        void CloseLogInWaitDialog();
+        void ShowProgressDialog(string message, int maximum = 0);
+        void IncrementProgress();
+        void CloseProgressDialog();
     }
 }

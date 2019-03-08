@@ -83,6 +83,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MetricResult.cs" />
+    <Compile Include="ProgressDialog.xaml.cs">
+        <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UnderscoreConverter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +94,6 @@
     <Compile Include="EsapiService.cs" />
     <Compile Include="IDialogService.cs" />
     <Compile Include="IEsapiService.cs" />
-    <Compile Include="LogInWaitDialog.xaml.cs">
-      <DependentUpon>LogInWaitDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -127,7 +127,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="LogInWaitDialog.xaml">
+    <Page Include="ProgressDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

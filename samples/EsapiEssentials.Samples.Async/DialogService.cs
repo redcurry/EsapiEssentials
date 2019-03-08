@@ -1,22 +1,31 @@
-﻿namespace EsapiEssentials.Samples.Async
+﻿using System.Windows;
+
+namespace EsapiEssentials.Samples.Async
 {
     public class DialogService : IDialogService
     {
-        private readonly LogInWaitDialog _logInWaitDialog;
+        private ProgressDialog _progressDialog;
 
-        public DialogService()
+        public void ShowProgressDialog(string message, int maximum)
         {
-            _logInWaitDialog = new LogInWaitDialog();
+            Application.Current.MainWindow.IsEnabled = false;
+            _progressDialog = new ProgressDialog();
+            _progressDialog.Owner = Application.Current.MainWindow;
+            _progressDialog.Message = message;
+            _progressDialog.MaxProgress = maximum;
+            _progressDialog.ResetProgress();
+            _progressDialog.Show();
         }
 
-        public void ShowLogInWaitDialog()
+        public void IncrementProgress()
         {
-            _logInWaitDialog.Show();
+            _progressDialog.IncrementProgress();
         }
 
-        public void CloseLogInWaitDialog()
+        public void CloseProgressDialog()
         {
-            _logInWaitDialog.Close();
+            Application.Current.MainWindow.IsEnabled = true;
+            _progressDialog.Close();
         }
     }
 }
