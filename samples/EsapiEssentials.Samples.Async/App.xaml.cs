@@ -9,7 +9,7 @@ namespace EsapiEssentials.Samples.Async
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             _esapiService = new EsapiService();
-            var dialogService = new DialogService();
+            var dialogService = new DialogService(this);
             var viewModel = new MainViewModel(_esapiService, dialogService);
             var window = new MainWindow(viewModel);
             window.Show();

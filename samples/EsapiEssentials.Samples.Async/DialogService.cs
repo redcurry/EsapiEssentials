@@ -5,6 +5,13 @@ namespace EsapiEssentials.Samples.Async
 {
     public class DialogService : IDialogService
     {
+        private readonly App _app;
+
+        public DialogService(App app)
+        {
+            _app = app;
+        }
+
         public void ShowProgressDialog(string message, Func<ISimpleProgress, Task> workAsync)
         {
             CreateProgressDialog(message, workAsync).ShowDialog();
@@ -18,6 +25,7 @@ namespace EsapiEssentials.Samples.Async
         private ProgressDialog CreateProgressDialog(string message, Func<ISimpleProgress, Task> workAsync)
         {
             var progressDialog = new ProgressDialog();
+            progressDialog.Owner = _app.MainWindow;
             progressDialog.Message = message;
             progressDialog.Loaded += async (sender, args) =>
             {
