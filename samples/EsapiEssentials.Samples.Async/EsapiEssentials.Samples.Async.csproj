@@ -82,26 +82,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IDialogProgress.cs" />
-    <Compile Include="MetricResult.cs" />
-    <Compile Include="ProgressDialog.xaml.cs">
+    <Compile Include="DialogService\IDialogProgress.cs" />
+    <Compile Include="ViewModels\MetricResult.cs" />
+    <Compile Include="Views\ProgressDialog.xaml.cs">
       <DependentUpon>ProgressDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SimpleProgress.cs" />
-    <Compile Include="UnderscoreConverter.cs" />
+    <Compile Include="DialogService\SimpleProgress.cs" />
+    <Compile Include="Views\UnderscoreConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DialogService.cs" />
-    <Compile Include="DoseMetricCalculator.cs" />
-    <Compile Include="EsapiService.cs" />
-    <Compile Include="IDialogService.cs" />
-    <Compile Include="IEsapiService.cs" />
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="DialogService\DialogService.cs" />
+    <Compile Include="Esapi\DoseMetricCalculator.cs" />
+    <Compile Include="Esapi\EsapiService.cs" />
+    <Compile Include="DialogService\IDialogService.cs" />
+    <Compile Include="Esapi\IEsapiService.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PatientMatch.cs" />
-    <Compile Include="Plan.cs" />
+    <Compile Include="Esapi\PatientMatch.cs" />
+    <Compile Include="Esapi\Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -129,11 +129,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ProgressDialog.xaml">
+    <Page Include="Views\ProgressDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
