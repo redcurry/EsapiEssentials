@@ -1,44 +1,16 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace EsapiEssentials.Samples.Async
 {
     public partial class MainWindow : Window
     {
-        private readonly EsapiService _esapiService;
-
-        public MainWindow()
+        public MainWindow(MainViewModel viewModel)
         {
             InitializeComponent();
-
-            _esapiService = new EsapiService();
+            DataContext = viewModel;
         }
 
-        private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            ProgressBar.IsIndeterminate = true;
-
-            StatusTextBlock.Text = "Initializing ESAPI...";
-            await _esapiService.LogInAsync("SysAdmin", "SysAdmin");
-
-            StatusTextBlock.Text = "Opening patient...";
-            await _esapiService.OpenPatientAsync("$DVHAnalysisQA");
-
-            StatusTextBlock.Text = "Fetching courses...";
-            var courseIds = await _esapiService.GetCourseIdsAsync();
-
-            ListBox.ItemsSource = courseIds;
-
-            StatusTextBlock.Text = "Calculating metric...";
-            var metric = await _esapiService.CalculateMeanDoseAsync("HEADNECK", "HN IMRT ECL", "CORD");
-
-            TextBlock.Text = metric.ToString("F2");
-
-            StatusTextBlock.Text = "Done.";
-            ProgressBar.IsIndeterminate = false;
-        }
-
+        /*
         private async void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var then = DateTime.Now;
@@ -47,10 +19,6 @@ namespace EsapiEssentials.Samples.Async
             var now = DateTime.Now;
             SearchTime.Text = $"{(now - then).Milliseconds} ms";
         }
-
-        private void MainWindow_OnClosed(object sender, EventArgs e)
-        {
-            _esapiService.Dispose();
-        }
+        */
     }
 }

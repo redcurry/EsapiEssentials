@@ -17,9 +17,10 @@ namespace EsapiEssentials.Samples.Async
         Task OpenPatientAsync(string patientId);
         Task ClosePatientAsync();
 
-        Task<string[]> SearchAsync(string searchText);
+        Task<PatientMatch[]> SearchAsync(string searchText);
 
-        Task<string[]> GetCourseIdsAsync();
+        Task<Plan[]> GetPlansAsync();
+        Task<string[]> GetStructureIdsAsync(string courseId, string planId);
 
         Task<double> CalculateMeanDoseAsync(string courseId, string planId, string structureId);
     }

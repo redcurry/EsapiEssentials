@@ -32,11 +32,32 @@ namespace EsapiEssentials.Samples.Async
         }
 
         // Use the RunAsync set of methods to run ESAPI-related actions on a separate thread
-        public Task<string[]> SearchAsync(string searchText) =>
-            RunAsync(() => _search.FindMatches(searchText).Select(ps => $"{ps.LastName}, {ps.FirstName}").ToArray());
+        public Task<PatientMatch[]> SearchAsync(string searchText) =>
+            RunAsync(() => _search.FindMatches(searchText)
+                .Select(ps => new PatientMatch
+                {
+                    Id = ps.Id,
+                    FirstName = ps.FirstName,
+                    LastName = ps.LastName
+                })
+                .ToArray());
 
-        public Task<string[]> GetCourseIdsAsync() =>
-            RunAsync(patient => patient.Courses.Select(x => x.Id).ToArray());
+        public Task<Plan[]> GetPlansAsync() =>
+            RunAsync(patient => patient.Courses?
+                .SelectMany(x => x.PlanSetups)
+                .Select(x => new Plan
+                {
+                    PlanId = x.Id,
+                    CourseId = x.Course?.Id
+                })
+                .ToArray());
+
+        public Task<string[]> GetStructureIdsAsync(string courseId, string planId) =>
+            RunAsync(patient =>
+            {
+                var plan = GetPlan(patient, courseId, planId);
+                return plan?.StructureSet?.Structures?.Select(x => x.Id).ToArray() ?? new string[0];
+            });
 
         public Task<double> CalculateMeanDoseAsync(string courseId, string planId, string structureId) =>
             RunAsync(patient => CalculateMeanDose(patient, courseId, planId, structureId));
