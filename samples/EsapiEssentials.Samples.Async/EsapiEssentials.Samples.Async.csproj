@@ -82,10 +82,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IDialogProgress.cs" />
     <Compile Include="MetricResult.cs" />
     <Compile Include="ProgressDialog.xaml.cs">
-        <DependentUpon>ProgressDialog.xaml</DependentUpon>
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimpleProgress.cs" />
     <Compile Include="UnderscoreConverter.cs" />
   </ItemGroup>
   <ItemGroup>

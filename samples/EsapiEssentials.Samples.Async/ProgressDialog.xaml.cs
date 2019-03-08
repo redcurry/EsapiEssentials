@@ -7,6 +7,7 @@ namespace EsapiEssentials.Samples.Async
         public ProgressDialog()
         {
             InitializeComponent();
+            ProgressBar.IsIndeterminate = true;
         }
 
         public string Message
@@ -20,24 +21,14 @@ namespace EsapiEssentials.Samples.Async
             get => (int)ProgressBar.Maximum;
             set
             {
-                if (value <= 0)
-                    ProgressBar.IsIndeterminate = true;
-                else
-                {
-                    ProgressBar.Maximum = value;
-                    ProgressBar.IsIndeterminate = false;
-                }
+                ProgressBar.Maximum = value;
+                ProgressBar.IsIndeterminate = false;
             }
         }
 
         public void IncrementProgress()
         {
             ProgressBar.Value += 1;
-        }
-
-        public void ResetProgress()
-        {
-            ProgressBar.Value = 0;
         }
     }
 }

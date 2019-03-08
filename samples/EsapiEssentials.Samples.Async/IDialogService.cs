@@ -1,9 +1,11 @@
-﻿namespace EsapiEssentials.Samples.Async
+﻿using System;
+using System.Threading.Tasks;
+
+namespace EsapiEssentials.Samples.Async
 {
     public interface IDialogService
     {
-        void ShowProgressDialog(string message, int maximum = 0);
-        void IncrementProgress();
-        void CloseProgressDialog();
+        void ShowProgressDialog(string message, Func<ISimpleProgress, Task> workAsync);
+        void ShowProgressDialog(string message, int maximum, Func<ISimpleProgress, Task> workAsync);
     }
 }

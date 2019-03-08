@@ -63,11 +63,10 @@ namespace EsapiEssentials.Samples.Async
         public ICommand OpenPatientCommand => new RelayCommand(OpenPatient);
         public ICommand AnalyzePlanCommand => new RelayCommand(AnalyzePlan);
 
-        private async void Start()
+        private void Start()
         {
-            _dialogService.ShowProgressDialog("Logging in to Eclipse. Please wait.");
-            await _esapiService.LogInAsync();
-            _dialogService.CloseProgressDialog();
+            _dialogService.ShowProgressDialog("Logging in to Eclipse. Please wait.",
+                async progress => await _esapiService.LogInAsync());
         }
 
         private async void SearchPatient()
@@ -95,32 +94,32 @@ namespace EsapiEssentials.Samples.Async
 
             var structureIds = await _esapiService.GetStructureIdsAsync(courseId, planId);
 
-            _dialogService.ShowProgressDialog("Calculating dose metrics", structureIds.Length);
-
-            MetricResults = new ObservableCollection<MetricResult>();
-            foreach (var structureId in structureIds)
-            {
-                double result;
-
-                try
+            _dialogService.ShowProgressDialog("Calculating dose metrics", structureIds.Length,
+                async progress =>
                 {
-                    result = await _esapiService.CalculateMeanDoseAsync(courseId, planId, structureId);
-                }
-                catch
-                {
-                    result = double.NaN;
-                }
+                    MetricResults = new ObservableCollection<MetricResult>();
+                    foreach (var structureId in structureIds)
+                    {
+                        double result;
 
-                MetricResults.Add(new MetricResult
-                {
-                    StructureId = structureId,
-                    Result = result
+                        try
+                        {
+                            result = await _esapiService.CalculateMeanDoseAsync(courseId, planId, structureId);
+                        }
+                        catch
+                        {
+                            result = double.NaN;
+                        }
+
+                        MetricResults.Add(new MetricResult
+                        {
+                            StructureId = structureId,
+                            Result = result
+                        });
+
+                        progress.Increment();
+                    }
                 });
-
-                _dialogService.IncrementProgress();
-            }
-
-            _dialogService.CloseProgressDialog();
         }
     }
 }
