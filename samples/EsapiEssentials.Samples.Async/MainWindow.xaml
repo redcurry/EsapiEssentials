@@ -8,6 +8,7 @@
     Title="MainWindow"
     Height="800" Width="800"
     WindowStartupLocation="CenterScreen"
+    Loaded="MainWindow_OnLoaded"
     >
 
     <Window.Resources>
@@ -31,7 +32,7 @@
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -42,6 +43,7 @@
                 />
             <TextBox
                 DockPanel.Dock="Top"
+                x:Name="SearchTextBox"
                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
                 Margin="0,5,0,0"
                 >
@@ -123,6 +125,13 @@
             </ListBox>
         </DockPanel>
 
+        <GridSplitter
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Background="Transparent"
+            Width="5"
+            />
+
         <DockPanel
             Grid.Column="1"
             Margin="5,0,0,0"
@@ -134,7 +143,26 @@
             <DataGrid
                 ItemsSource="{Binding MetricResults}"
                 IsReadOnly="True"
-                />
+                AutoGenerateColumns="False"
+                >
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Header="Structure ID"
+                        Binding="{Binding StructureId, Converter={StaticResource UnderscoreConverter}}"
+                        />
+                    <DataGridTextColumn
+                        Header="Mean Dose [Gy]"
+                        Binding="{Binding Result, StringFormat=\{0:f2\}}"
+                        >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <!-- Align mean dose to the right (looks better) -->
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </Grid>
 </Window>

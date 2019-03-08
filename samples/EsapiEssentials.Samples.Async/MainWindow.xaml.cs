@@ -10,15 +10,9 @@ namespace EsapiEssentials.Samples.Async
             DataContext = viewModel;
         }
 
-        /*
-        private async void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var then = DateTime.Now;
-            var results = await _esapiService.SearchAsync(SearchTextBox.Text);
-            SearchResultsListBox.ItemsSource = results;
-            var now = DateTime.Now;
-            SearchTime.Text = $"{(now - then).Milliseconds} ms";
+            SearchTextBox.Focus();
         }
-        */
     }
 }
