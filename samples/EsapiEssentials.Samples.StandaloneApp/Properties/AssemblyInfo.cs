@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("EsapiEssentials.Samples.StandaloneApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michigan Medicine Radiation Oncology")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("EsapiEssentials.Samples.StandaloneApp")]
-[assembly: AssemblyCopyright("Copyright © Michigan Medicine Radiation Oncology 2019")]
+[assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
