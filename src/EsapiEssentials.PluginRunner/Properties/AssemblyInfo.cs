@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EsapiEssentials.PluginRunner")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Plugin runner for EsapiEssentials")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Carlos Anderson")]
 [assembly: AssemblyProduct("EsapiEssentials.PluginRunner")]
 [assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
