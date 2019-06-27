@@ -16,7 +16,7 @@ namespace VMS.TPS
     // so it must be added manually to the project (via Add New Item).
     public class Script : ScriptBase
     {
-        public override void Execute(PluginScriptContext context)
+        public override void Run(PluginScriptContext context)
         {
             // Define the desired structure ID
             var structureId = GetStructureIdFromSettings();

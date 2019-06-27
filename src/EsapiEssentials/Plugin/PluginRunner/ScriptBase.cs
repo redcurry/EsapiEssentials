@@ -15,13 +15,13 @@ namespace EsapiEssentials.Plugin
         /// </summary>
         public void Execute(ScriptContext context)
         {
-            Execute(new PluginScriptContext(context));
+            Run(new PluginScriptContext(context));
         }
 
         /// <summary>
         /// The method you need to implement for your script to do anything.
         /// </summary>
         /// <param name="context">A copy of the script context of the Eclipse session.</param>
-        public abstract void Execute(PluginScriptContext context);
+        public abstract void Run(PluginScriptContext context);
     }
 }

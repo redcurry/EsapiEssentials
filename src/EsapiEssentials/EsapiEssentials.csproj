@@ -54,8 +54,11 @@
     <Reference Include="VMS.TPS.Common.Model.Types">
       <HintPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182\VMS.TPS.Common.Model.Types.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Plugin\Async\DispatcherRunner.cs" />
+    <Compile Include="Plugin\Async\Duplex.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneScriptContext.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneRunner.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneRunnerException.cs" />

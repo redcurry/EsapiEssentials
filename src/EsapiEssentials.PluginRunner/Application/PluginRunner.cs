@@ -87,7 +87,7 @@ namespace EsapiEssentials.PluginRunner
                 }
                 else if (_script != null)
                 {
-                    _script.Execute(context);
+                    _script.Run(context);
                 }
             }
             catch (Exception e)
