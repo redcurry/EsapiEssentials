@@ -7,13 +7,14 @@ namespace VMS.TPS
     {
         public override void Run(PluginScriptContext context)
         {
-            using (var duplex = new Duplex())
+            var esapiService = new EsapiService(context);
+
+            using (var ui = new UiRunner())
             {
-                duplex.Run(runner =>
+                ui.Run(() =>
                 {
                     var window = new MainWindow();
                     var dialogService = new DialogService(window);
-                    var esapiService = new EsapiService(runner, context);
                     var viewModel = new MainViewModel(esapiService, dialogService);
                     window.DataContext = viewModel;
                     window.ShowDialog();

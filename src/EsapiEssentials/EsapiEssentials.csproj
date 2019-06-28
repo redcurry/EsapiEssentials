@@ -57,8 +57,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plugin\Async\DispatcherRunner.cs" />
-    <Compile Include="Plugin\Async\Duplex.cs" />
+    <Compile Include="Plugin\Async\AsyncRunner.cs" />
+    <Compile Include="Plugin\Async\UiRunner.cs" />
+    <Compile Include="Plugin\Async\EsapiServiceBase.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneScriptContext.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneRunner.cs" />
     <Compile Include="Standalone\StandaloneRunner\StandaloneRunnerException.cs" />

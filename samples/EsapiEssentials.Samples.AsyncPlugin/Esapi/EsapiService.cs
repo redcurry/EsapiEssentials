@@ -1,26 +1,21 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using EsapiEssentials.Plugin;
 using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Samples.AsyncPlugin
 {
-    public class EsapiService : IEsapiService
+    public class EsapiService : EsapiServiceBase<PluginScriptContext>, IEsapiService
     {
-        private readonly DispatcherRunner _runner;
-        private readonly PluginScriptContext _context;
         private readonly DoseMetricCalculator _metricCalc;
 
-        public EsapiService(DispatcherRunner runner, PluginScriptContext context)
+        public EsapiService(PluginScriptContext context) : base(context)
         {
-            _runner = runner;
-            _context = context;
             _metricCalc = new DoseMetricCalculator();
         }
 
         public Task<Plan[]> GetPlansAsync() =>
-            RunAsync(patient => patient.Courses?
+            RunAsync(context => context.Patient.Courses?
                 .SelectMany(x => x.PlanSetups)
                 .Select(x => new Plan
                 {
@@ -30,20 +25,14 @@ namespace EsapiEssentials.Samples.AsyncPlugin
                 .ToArray());
 
         public Task<string[]> GetStructureIdsAsync(string courseId, string planId) =>
-            RunAsync(patient =>
+            RunAsync(context =>
             {
-                var plan = GetPlan(patient, courseId, planId);
+                var plan = GetPlan(context.Patient, courseId, planId);
                 return plan?.StructureSet?.Structures?.Select(x => x.Id).ToArray() ?? new string[0];
             });
 
         public Task<double> CalculateMeanDoseAsync(string courseId, string planId, string structureId) =>
-            RunAsync(patient => CalculateMeanDose(patient, courseId, planId, structureId));
-
-        protected Task<T> RunAsync<T>(Func<Patient, T> f) =>
-            RunAsync(() => f(_context.Patient));
-
-        protected Task RunAsync(Action a) => _runner.RunAsync(a);
-        protected Task<T> RunAsync<T>(Func<T> f) => _runner.RunAsync(f);
+            RunAsync(context => CalculateMeanDose(context.Patient, courseId, planId, structureId));
 
         private double CalculateMeanDose(Patient patient, string courseId, string planId, string structureId)
         {
