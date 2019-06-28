@@ -7,6 +7,7 @@ namespace EsapiEssentials.PluginRunner
     /// </summary>
     public static class ScriptRunner
     {
+#if ESAPI_13
         /// <summary>
         /// Runs the plugin runner for the given script (accepts a Window).
         /// </summary>
@@ -15,7 +16,12 @@ namespace EsapiEssentials.PluginRunner
         /// <param name="password">The optional user password to log in to Eclipse.</param>
         public static void Run(ScriptBaseWithWindow script, string userId = null, string password = null) =>
             RunWith(new PluginRunner(script, userId, password));
+#elif ESAPI_15
+        public static void Run(ScriptBaseWithWindow script) =>
+            RunWith(new PluginRunner(script));
+#endif
 
+#if ESAPI_13
         /// <summary>
         /// Runs the plugin runner for the given script (does not accept a Window).
         /// </summary>
@@ -24,6 +30,10 @@ namespace EsapiEssentials.PluginRunner
         /// <param name="password">The optional user password to log in to Eclipse.</param>
         public static void Run(ScriptBase script, string userId = null, string password = null) =>
             RunWith(new PluginRunner(script, userId, password));
+#elif ESAPI_15
+        public static void Run(ScriptBase script) =>
+            RunWith(new PluginRunner(script));
+#endif
 
         private static void RunWith(PluginRunner runner)
         {

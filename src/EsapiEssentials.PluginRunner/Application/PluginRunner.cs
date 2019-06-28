@@ -25,21 +25,45 @@ namespace EsapiEssentials.PluginRunner
         private PatientSummarySearch _search;
         private IDataRepository _dataRepository;
 
+#if ESAPI_13
         public PluginRunner(ScriptBase script, string userId, string password)
+#elif ESAPI_15
+        public PluginRunner(ScriptBase script)
+#endif
         {
             _script = script;
+#if ESAPI_13
             Initialize(userId, password);
+#elif ESAPI_15
+            Initialize();
+#endif
         }
 
+#if ESAPI_13
         public PluginRunner(ScriptBaseWithWindow script, string userId, string password)
+#elif ESAPI_15
+        public PluginRunner(ScriptBaseWithWindow script)
+#endif
         {
             _scriptWithWindow = script;
+#if ESAPI_13
             Initialize(userId, password);
+#elif ESAPI_15
+            Initialize();
+#endif
         }
 
+#if ESAPI_13
         private void Initialize(string userId, string password)
+#elif ESAPI_15
+        private void Initialize()
+#endif
         {
+#if ESAPI_13
             _esapiApp = Application.CreateApplication(userId, password);
+#elif ESAPI_15
+            _esapiApp = Application.CreateApplication();
+#endif
             _search = new PatientSummarySearch(_esapiApp.PatientSummaries, MaxSearchResults);
             _dataRepository = new DataRepository(GetDataPath());
         }

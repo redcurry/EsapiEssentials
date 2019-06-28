@@ -26,8 +26,13 @@ namespace EsapiEssentials.Standalone
         /// </summary>
         /// <returns>A Task to perform this action.</returns>
         public virtual Task LogInAsync() =>
+#if ESAPI_13
             RunAsync(() => _app = Application.CreateApplication(null, null));
+#elif ESAPI_15
+            RunAsync(() => _app = Application.CreateApplication());
+#endif
 
+#if ESAPI_13
         /// <summary>
         /// Creates the ESAPI Application object with the given user credentials,
         /// so a log-in dialog box will not be displayed to the user.
@@ -37,6 +42,7 @@ namespace EsapiEssentials.Standalone
         /// <returns>A Task to perform this action.</returns>
         public virtual Task LogInAsync(string userId, string password) =>
             RunAsync(() => _app = Application.CreateApplication(userId, password));
+#endif
 
         /// <summary>
         /// Opens the patient for the given patient ID.

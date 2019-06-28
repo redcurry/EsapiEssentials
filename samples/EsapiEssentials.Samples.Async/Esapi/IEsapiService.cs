@@ -12,7 +12,9 @@ namespace EsapiEssentials.Samples.Async
     public interface IEsapiService
     {
         Task LogInAsync();
+#if ESAPI_13
         Task LogInAsync(string userId, string password);
+#endif
 
         Task OpenPatientAsync(string patientId);
         Task ClosePatientAsync();

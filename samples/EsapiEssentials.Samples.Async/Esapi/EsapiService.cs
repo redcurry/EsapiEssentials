@@ -25,11 +25,13 @@ namespace EsapiEssentials.Samples.Async
             await InitializeSearchAsync();
         }
 
+#if ESAPI_13
         public override async Task LogInAsync(string userId, string password)
         {
             await base.LogInAsync(userId, password);
             await InitializeSearchAsync();
         }
+#endif
 
         // Use the RunAsync set of methods to run ESAPI-related actions on a separate thread
         public Task<PatientMatch[]> SearchAsync(string searchText) =>

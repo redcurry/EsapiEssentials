@@ -22,7 +22,11 @@ namespace EsapiEssentials.Samples.StandaloneRunner.App
         private void InitializeEsapi()
         {
             // The ESAPI Application object must be created before the PluginScriptContext
+#if ESAPI_13
             _app = Application.CreateApplication(null, null);
+#elif ESAPI_15
+            _app = Application.CreateApplication();
+#endif
 
             // The PluginScriptContext requires the command-line arguments and the Application object
             // (if there are no command-line arguments, the return is null)
