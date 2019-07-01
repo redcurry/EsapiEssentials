@@ -34,6 +34,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <Import Project="..\..\Common.props"/>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -99,6 +100,12 @@
       <Project>{96E0CE2E-799B-473D-BF00-15DDC693A421}</Project>
       <Name>EsapiEssentials.Samples.AsyncPlugin</Name>
     </ProjectReference>
+    <Reference Include="VMS.TPS.Common.Model.API">
+        <HintPath>$(EsapiPath)\VMS.TPS.Common.Model.API.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.Types">
+        <HintPath>$(EsapiPath)\VMS.TPS.Common.Model.Types.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

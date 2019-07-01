@@ -1,10 +1,11 @@
 ﻿using EsapiEssentials.PluginRunner;
 using System.Windows;
 using VMS.TPS;
+using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Samples.AsyncPlugin.Runner
 {
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
@@ -12,5 +13,7 @@ namespace EsapiEssentials.Samples.AsyncPlugin.Runner
             // as well as the project that contains the Script class
             ScriptRunner.Run(new Script());
         }
+
+        public void Dummy(PlanSetup plan) { }
     }
 }
