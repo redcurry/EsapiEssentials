@@ -1,10 +1,11 @@
 ﻿using System.Windows;
 using EsapiEssentials.PluginRunner;
 using VMS.TPS;
+using VMS.TPS.Common.Model.API;
 
 namespace EsapiEssentials.Samples.PluginScript.Runner
 {
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
@@ -12,5 +13,8 @@ namespace EsapiEssentials.Samples.PluginScript.Runner
             // as well as the project that contains the Script class
             ScriptRunner.Run(new Script());
         }
+
+        // Fix UnauthorizedScriptingAPIAccessException
+        public void DoNothing(PlanSetup plan) { }
     }
 }
