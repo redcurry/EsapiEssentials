@@ -6,11 +6,10 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/redcurry/EsapiEssentials/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/redcurry/EsapiEssentials</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release of EsapiEssentials.PluginRunner</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>esapi varian</tags>
   </metadata>
