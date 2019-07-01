@@ -84,6 +84,9 @@ namespace EsapiEssentials.PluginRunner
 
         public PlanOrPlanSum[] GetPlansAndPlanSumsFor(string patientId)
         {
+            if (patientId == null)
+                return null;
+
             var patient = _esapiApp.OpenPatientById(patientId);
 
             // Must call ToArray() before closing the patient
