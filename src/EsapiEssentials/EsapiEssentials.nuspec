@@ -10,7 +10,6 @@
     <projectUrl>https://github.com/redcurry/EsapiEssentials</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added the ability to run ESAPI code on the original thread and other code on a separate thread.</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>esapi varian</tags>
   </metadata>
