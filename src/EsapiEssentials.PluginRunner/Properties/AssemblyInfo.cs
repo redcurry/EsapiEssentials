@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EsapiEssentials.PluginRunner")]
-[assembly: AssemblyDescription("Plugin runner for EsapiEssentials")]
+[assembly: AssemblyDescription("Plugin runner for EsapiEssentials (ESAPI 15.5)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Carlos Anderson")]
 [assembly: AssemblyProduct("EsapiEssentials.PluginRunner")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.9.0.0")]
+[assembly: AssemblyFileVersion("1.9.0.0")]
