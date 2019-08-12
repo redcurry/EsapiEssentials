@@ -4,6 +4,10 @@
     <DefineConstants>ESAPI_13;$(DefineConstants)</DefineConstants>
     <EsapiPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182</EsapiPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug-15.5' Or $(Configuration) == 'Release-15.5'">
+    <DefineConstants>ESAPI_15;$(DefineConstants)</DefineConstants>
+    <EsapiPath>\\rofile\EclipseScripts\Shared\VMS.TPS\15.5.11.13</EsapiPath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug-15.6' Or $(Configuration) == 'Release-15.6'">
     <DefineConstants>ESAPI_15;$(DefineConstants)</DefineConstants>
     <EsapiPath>\\rofile\EclipseScripts\Shared\VMS.TPS\15.6.5.10</EsapiPath>
