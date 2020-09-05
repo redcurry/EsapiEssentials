@@ -2,10 +2,10 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)' == 'Debug-13.6' Or '$(Configuration)' == 'Release-13.6'">
     <DefineConstants>ESAPI_13;$(DefineConstants)</DefineConstants>
-    <EsapiPath>\\rofile\EclipseScripts\Shared\VMS.TPS\13.6.32.20182</EsapiPath>
+    <EsapiPath>C:\esapi\13.6</EsapiPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug-15.6' Or $(Configuration) == 'Release-15.6'">
     <DefineConstants>ESAPI_15;$(DefineConstants)</DefineConstants>
-    <EsapiPath>\\rofile\EclipseScripts\Shared\VMS.TPS\15.6.5.10</EsapiPath>
+    <EsapiPath>C:\esapi\15.6</EsapiPath>
   </PropertyGroup>
 </Project>
